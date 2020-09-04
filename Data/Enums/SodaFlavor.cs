@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Enums
     {
         Blackberry,
         Cherry,
-        GrapeFruit,
+        Grapefruit,
         Lemon,
         Peach,
         Watermelon
