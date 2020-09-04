@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BleakwindBuffet.Data.Entree {
+namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// DoubleDraugr represents a double cheeseburger and is built off of the BriarheartBurger object with additional topping choices.
     /// </summary>

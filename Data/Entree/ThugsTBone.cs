@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BleakwindBuffet.Data.Entree {
+namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// Represents a T-Bone menu option.
     /// </summary>

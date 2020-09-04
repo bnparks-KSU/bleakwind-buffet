@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BleakwindBuffet.Data.Entree {
+namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// Represents the SmokehouseSkeleton menu option.
     /// </summary>
