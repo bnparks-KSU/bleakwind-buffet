@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entree {
+namespace BleakwindBuffet.Data.Entree {
     /// <summary>
     /// PhillyPoacher is a philly cheesesteak food option.
     /// </summary>

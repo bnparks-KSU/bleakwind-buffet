@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entree {
+namespace BleakwindBuffet.Data.Entree {
     /// <summary>
     /// BriarheartBurger represents the base cheeseburger object.
     /// </summary>

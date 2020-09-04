@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entree {
+namespace BleakwindBuffet.Data.Entree {
     /// <summary>
     /// ThalmoreTriple represents a double cheeseburger and is built off of the DoubleDraugr object with additional topping choices.
     /// </summary>

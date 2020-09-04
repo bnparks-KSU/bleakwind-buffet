@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Sides {
+namespace BleakwindBuffet.Data.Sides {
     /// <summary>
     /// Represents a fried miraak side menu option.
     /// </summary>

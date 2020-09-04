@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entree {
+namespace BleakwindBuffet.Data.Entree {
     /// <summary>
     /// DoubleDraugr represents a double cheeseburger and is built off of the BriarheartBurger object with additional topping choices.
     /// </summary>
@@ -15,15 +15,15 @@ namespace Data.Entree {
         /// <summary>
         /// Gets or sets if the customer wants tomato on their burger.
         /// </summary>
-        private bool Tomato { get; set; } = true;
+        public bool Tomato { get; set; } = true;
         /// <summary>
         /// Gets or sets if the customer wants lettuce on their burger.
         /// </summary>
-        private bool Lettuce { get; set; } = true;
+        public bool Lettuce { get; set; } = true;
         /// <summary>
         /// Gets or sets if the customer wants mayo on their burger.
         /// </summary>
-        private bool Mayo { get; set; } = true;
+        public bool Mayo { get; set; } = true;
         /// <summary>
         /// Gets the price of the burger.
         /// </summary>

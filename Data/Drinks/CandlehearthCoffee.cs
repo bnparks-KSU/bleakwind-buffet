@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Drinks {
+namespace BleakwindBuffet.Data.Drinks {
     /// <summary>
     /// Represents the Candlehearth coffee drink.
     /// </summary>
