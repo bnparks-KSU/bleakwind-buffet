@@ -42,9 +42,9 @@ namespace BleakwindBuffet.Data.Entrees {
         /// <summary>
         /// Returns the name of the menu item
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The name of the entree Thalmor Triple</returns>
         public override string ToString() {
-            return "Thalmmore Triple";
+            return "Thalmor Triple";
         }
     }
 }

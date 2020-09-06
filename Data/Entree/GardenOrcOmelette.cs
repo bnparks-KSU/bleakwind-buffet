@@ -11,7 +11,7 @@ namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// GardenOrcOmlette is a vegetarian breakfast option.
     /// </summary>
-    public class GardenOrcOmlette {
+    public class GardenOrcOmelette {
         /// <summary>
         /// Gets or sets if the customer wants broccoli.
         /// </summary>
@@ -52,9 +52,9 @@ namespace BleakwindBuffet.Data.Entrees {
         /// <summary>
         /// Gets the name of the menu item.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The name of the entree Garden Orc Omelette</returns>
         public override string ToString() {
-            return "Garden Orc Omlette";
+            return "Garden Orc Omelette";
         }
     }
 }

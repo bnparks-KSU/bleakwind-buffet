@@ -63,7 +63,7 @@ namespace BleakwindBuffet.Data.Drinks {
         /// <summary>
         /// Gets the name and size of the drink.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The name of the drink in the format {Size} {Flavor} Sailor Soda</returns>
         public override string ToString() {
             return Size + " " + Flavor + " Sailor Soda";
         }

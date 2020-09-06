@@ -46,7 +46,7 @@ namespace BleakwindBuffet.Data.Entrees {
         /// <summary>
         /// Returns the name of the menu option.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The name of the entree Double Draugr</returns>
         public override string ToString() {
             return "Double Draugr";
         }

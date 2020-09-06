@@ -50,7 +50,7 @@ namespace BleakwindBuffet.Data.Sides {
         /// <summary>
         /// Gets the name and size of the side option.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The name of the side in the format {Size} Fried Miraak</returns>
         public override string ToString() {
             return size + " Fried Miraak";
         }

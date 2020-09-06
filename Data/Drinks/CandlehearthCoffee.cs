@@ -25,7 +25,7 @@ namespace BleakwindBuffet.Data.Drinks {
         /// <summary>
         /// Gets or sets if the customer wants ice in their drink.
         /// </summary>
-        public bool Ice { get; set; } = true;
+        public bool Ice { get; set; } = false;
         /// <summary>
         /// Gets or sets of the customer wants cream in their drink.
         /// </summary>
@@ -69,7 +69,7 @@ namespace BleakwindBuffet.Data.Drinks {
         /// <summary>
         /// Gets the name and size of the drink.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The name of the drink in the format {Size} {Decaf?} Candlehearth Coffee</returns>
         public override string ToString() {
             return Size + (Decaf ? " Decaf Candlehearth Coffee" : " Candlehearth Coffee");
         }

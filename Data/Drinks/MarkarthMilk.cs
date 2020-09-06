@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Drinks {
     /// <summary>
     /// Represents the Markath Milk drink.
     /// </summary>
-    public class SailorSoda2 {
+    public class MarkarthMilk {
         private Size size = Size.Small;
         /// <summary>
         /// Gets the price of the drink.
@@ -60,9 +60,9 @@ namespace BleakwindBuffet.Data.Drinks {
         /// <summary>
         /// Gets the name and size and size of the drink.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The name of the drink in the format {Size} Markarth Milk</returns>
         public override string ToString() {
-            return Size + " Markath Milk";
+            return Size + " Markarth Milk";
         }
     }
 }
