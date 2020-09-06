@@ -3,18 +3,13 @@
  * Class: GardenOrcOmeletteTests.cs
  * Purpose: Test the GardenOrcOmelette.cs class in the Data library
  */
+using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
-using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Entrees;
-
-namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
-{
-    public class GardenOrcOmeletteTests
-    {
+namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+    public class GardenOrcOmeletteTests {
         [Fact]
-        public void ShouldInlcudeBroccoliByDefault()
-        {
+        public void ShouldInlcudeBroccoliByDefault() {
             GardenOrcOmelette goo = new GardenOrcOmelette();
             Assert.True(goo.Broccoli);
         }
@@ -60,7 +55,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             GardenOrcOmelette goo = new GardenOrcOmelette();
             goo.Tomato = false;
             Assert.False(goo.Tomato);
-            goo.Tomato= true;
+            goo.Tomato = true;
             Assert.True(goo.Tomato);
         }
 
@@ -74,8 +69,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
-        public void ShouldReturnCorrectPrice()
-        {
+        public void ShouldReturnCorrectPrice() {
             GardenOrcOmelette goo = new GardenOrcOmelette();
             Assert.Equal(4.57, goo.Price);
         }
@@ -83,22 +77,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectCalories() {
             GardenOrcOmelette goo = new GardenOrcOmelette();
-            Assert.Equal((uint) 404, goo.Calories);
+            Assert.Equal((uint)404, goo.Calories);
         }
 
         [Theory]
         [InlineData(true, true, true, true)]
         [InlineData(false, false, false, false)]
         public void ShouldReturnCorrectSpecialInstructions(bool includeBroccoli, bool includeMushrooms,
-                                                            bool includeTomato, bool includeCheddar)
-        {
+                                                            bool includeTomato, bool includeCheddar) {
             GardenOrcOmelette goo = new GardenOrcOmelette();
             goo.Broccoli = includeBroccoli;
             goo.Mushrooms = includeMushrooms;
             goo.Tomato = includeTomato;
             goo.Cheddar = includeCheddar;
 
-            if(includeBroccoli) {
+            if (includeBroccoli) {
                 Assert.DoesNotContain("Hold broccoli", goo.SpecialInstructions);
             } else {
                 Assert.Contains("Hold broccoli", goo.SpecialInstructions);
@@ -118,15 +111,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             } else {
                 Assert.Contains("Hold cheddar", goo.SpecialInstructions);
             }
-            if(includeCheddar && includeBroccoli && includeMushrooms && includeTomato) {
+            if (includeCheddar && includeBroccoli && includeMushrooms && includeTomato) {
                 Assert.Empty(goo.SpecialInstructions);
             }
 
         }
 
         [Fact]
-        public void ShouldReturnCorrectToString()
-        {
+        public void ShouldReturnCorrectToString() {
             GardenOrcOmelette goo = new GardenOrcOmelette();
             Assert.Equal("Garden Orc Omelette", goo.ToString());
         }

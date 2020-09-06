@@ -3,15 +3,11 @@
  * Class: ThalmorTripleTests.cs
  * Purpose: Test the ThalmorTriple.cs class in the Data library
  */
+using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
-using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Entrees;
-
-namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
-{
-    public class ThalmorTripleTests
-    {
+namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+    public class ThalmorTripleTests {
 
         [Fact]
         public void ShouldIncludeBunByDefault() {
@@ -75,8 +71,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
-        public void ShouldBeAbleToSetBun()
-        {
+        public void ShouldBeAbleToSetBun() {
             ThalmorTriple tt = new ThalmorTriple();
             tt.Bun = false;
             Assert.False(tt.Bun);
@@ -166,8 +161,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
-        public void ShouldReturnCorrectPrice()
-        {
+        public void ShouldReturnCorrectPrice() {
             ThalmorTriple tt = new ThalmorTriple();
             Assert.Equal(8.32, tt.Price);
         }
@@ -175,7 +169,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectCalories() {
             ThalmorTriple tt = new ThalmorTriple();
-            Assert.Equal((uint) 943, tt.Calories);
+            Assert.Equal((uint)943, tt.Calories);
         }
 
         [Theory]
@@ -184,8 +178,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectSpecialInstructions(bool includeBun, bool includeKetchup, bool includeMustard,
                                                                     bool includePickle, bool includeCheese, bool includeTomato,
                                                                     bool includeLettuce, bool includeMayo,
-                                                                    bool includeBacon, bool includeEgg)
-        {
+                                                                    bool includeBacon, bool includeEgg) {
             ThalmorTriple tt = new ThalmorTriple();
             tt.Bun = includeBun;
             tt.Ketchup = includeKetchup;
@@ -254,8 +247,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
-        public void ShouldReturnCorrectToString()
-        {
+        public void ShouldReturnCorrectToString() {
             ThalmorTriple tt = new ThalmorTriple();
             Assert.Equal("Thalmor Triple", tt.ToString());
         }

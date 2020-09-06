@@ -3,10 +3,8 @@
  * Class name: SailorSoda.cs
  * Purpose: Class used to represent the sailor soda drink.
  */
- using BleakwindBuffet.Data.Enums;
-using System;
+using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks {
     /// <summary>
@@ -36,29 +34,30 @@ namespace BleakwindBuffet.Data.Drinks {
         public List<string> SpecialInstructions {
             get {
                 List<string> ret = new List<string>();
-                if(!Ice) ret.Add("Hold ice");
+                if (!Ice) ret.Add("Hold ice");
                 return ret;
             }
         }
         /// <summary>
         /// Gets and sets the size of the drink which also adjusts the Price and Calorie fields based off of the new size.
         /// </summary>
-        public Size Size { 
+        public Size Size {
             get {
                 return size;
-            } set {
+            }
+            set {
                 size = value;
-                if(size == Size.Small) {
+                if (size == Size.Small) {
                     Price = 1.42;
                     Calories = 117;
-                } else if(size == Size.Medium) {
+                } else if (size == Size.Medium) {
                     Price = 1.74;
                     Calories = 153;
                 } else {
                     Price = 2.07;
                     Calories = 205;
                 }
-            } 
+            }
         }
         /// <summary>
         /// Gets the name and size of the drink.

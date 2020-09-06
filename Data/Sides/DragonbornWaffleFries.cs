@@ -4,9 +4,7 @@
  * Purpose: Class used to represent the dragonborn waffle fries side.
  */
 using BleakwindBuffet.Data.Enums;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Sides {
     /// <summary>
@@ -29,15 +27,16 @@ namespace BleakwindBuffet.Data.Sides {
         /// <summary>
         /// Gets and sets the size of the side which also adjusts the Price and Calorie fields based off of the new size.
         /// </summary>
-        public Size Size { 
+        public Size Size {
             get {
                 return size;
-            } set {
+            }
+            set {
                 size = value;
-                if(value == Size.Small) {
+                if (value == Size.Small) {
                     Price = .42;
                     Calories = 77;
-                } else if(value == Size.Medium) {
+                } else if (value == Size.Medium) {
                     Price = .76;
                     Calories = 89;
                 } else {

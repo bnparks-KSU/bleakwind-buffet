@@ -3,10 +3,8 @@
  * Class name: CandlehearthCoffee.cs
  * Purpose: Class used to represent the candlehearth coffee drink.
  */
- using BleakwindBuffet.Data.Enums;
-using System;
+using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks {
     /// <summary>

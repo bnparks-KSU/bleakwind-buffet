@@ -3,18 +3,13 @@
  * Class: SmokehouseSkeletonTests.cs
  * Purpose: Test the SmokehouseSkeleton.cs class in the Data library
  */
+using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
-using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Entrees;
-
-namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
-{
-    public class SmokehouseSkeletonTests
-    {        
+namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+    public class SmokehouseSkeletonTests {
         [Fact]
-        public void ShouldInlcudeSausageByDefault()
-        {
+        public void ShouldInlcudeSausageByDefault() {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             Assert.True(ss.SausageLink);
         }
@@ -74,8 +69,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
-        public void ShouldReturnCorrectPrice()
-        {
+        public void ShouldReturnCorrectPrice() {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             Assert.Equal(5.62, ss.Price);
         }
@@ -83,22 +77,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectCalories() {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
-            Assert.Equal((uint) 602, ss.Calories);
+            Assert.Equal((uint)602, ss.Calories);
         }
 
         [Theory]
         [InlineData(true, true, true, true)]
         [InlineData(false, false, false, false)]
         public void ShouldReturnCorrectSpecialInstructions(bool includeSausage, bool includeEgg,
-                                                            bool includeHashbrowns, bool includePancake)
-        {
+                                                            bool includeHashbrowns, bool includePancake) {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             ss.SausageLink = includeSausage;
             ss.Egg = includeEgg;
             ss.HashBrowns = includeHashbrowns;
             ss.Pancake = includePancake;
 
-            if(includeSausage) {
+            if (includeSausage) {
                 Assert.DoesNotContain("Hold sausage", ss.SpecialInstructions);
             } else {
                 Assert.Contains("Hold sausage", ss.SpecialInstructions);
@@ -121,8 +114,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
-        public void ShouldReturnCorrectToString()
-        {
+        public void ShouldReturnCorrectToString() {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             Assert.Equal("Smokehouse Skeleton", ss.ToString());
         }

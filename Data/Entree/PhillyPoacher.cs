@@ -3,9 +3,7 @@
  * Class name: PhillyPoacher.cs
  * Purpose: Class used to represent the philly cheesesteak menu option.
  */
- using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>

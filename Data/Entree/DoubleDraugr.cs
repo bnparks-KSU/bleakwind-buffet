@@ -3,9 +3,7 @@
  * Class name: DoubleDraugr.cs
  * Purpose: Class used to represent the double burger, the Double Draugr.
  */
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
@@ -35,7 +33,8 @@ namespace BleakwindBuffet.Data.Entrees {
         /// <summary>
         /// Gets a list of the special instructions for the burger.
         /// </summary>
-        public override List<string> SpecialInstructions { get {
+        public override List<string> SpecialInstructions {
+            get {
                 List<string> ret = base.SpecialInstructions;
                 if (!Tomato) ret.Add("Hold tomato");
                 if (!Lettuce) ret.Add("Hold lettuce");

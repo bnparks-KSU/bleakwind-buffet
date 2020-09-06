@@ -3,19 +3,14 @@
  * Class: MarkarthMilkTests.cs
  * Purpose: Test the MarkarthMilk.cs class in the Data library
  */
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Enums;
 using Xunit;
 
-using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Enums;
-using BleakwindBuffet.Data.Drinks;
-
-namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
-{
-    public class MarkarthMilkTests
-    {
+namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
+    public class MarkarthMilkTests {
         [Fact]
-        public void ShouldNotIncludeIceByDefault()
-        {
+        public void ShouldNotIncludeIceByDefault() {
             MarkarthMilk mm = new MarkarthMilk();
             Assert.False(mm.Ice);
         }
@@ -27,8 +22,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Fact]
-        public void ShouldByAbleToSetIce()
-        {
+        public void ShouldByAbleToSetIce() {
             MarkarthMilk mm = new MarkarthMilk();
             mm.Ice = true;
             Assert.True(mm.Ice);
@@ -84,8 +78,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small, "Small Markarth Milk")]
         [InlineData(Size.Medium, "Medium Markarth Milk")]
         [InlineData(Size.Large, "Large Markarth Milk")]
-        public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
-        {
+        public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name) {
             MarkarthMilk mm = new MarkarthMilk();
             mm.Size = size;
             Assert.Equal(name, mm.ToString());

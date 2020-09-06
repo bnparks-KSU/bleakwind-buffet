@@ -3,9 +3,7 @@
  * Class name: SmokehouseSkeleton.cs
  * Purpose: Class used to represent the breakfast combo, the SmokehouseSkeleton.
  */
- using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>

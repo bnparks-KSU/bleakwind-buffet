@@ -3,9 +3,7 @@
  * Class name: ThugsTBone.cs
  * Purpose: Class used to represent the Thugs T-Bone menu option.
  */
- using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>

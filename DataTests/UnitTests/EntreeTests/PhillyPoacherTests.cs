@@ -3,18 +3,13 @@
  * Class: PhillyPoacherTests.cs
  * Purpose: Test the PhillyPoacher.cs class in the Data library
  */
+using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
-using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Entrees;
-
-namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
-{
-    public class PhillyPoacherTests
-    {
+namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+    public class PhillyPoacherTests {
         [Fact]
-        public void ShouldInlcudeSirloinByDefault()
-        {
+        public void ShouldInlcudeSirloinByDefault() {
             PhillyPoacher p = new PhillyPoacher();
             Assert.True(p.Sirloin);
         }
@@ -59,8 +54,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
-        public void ShouldReturnCorrectPrice()
-        {
+        public void ShouldReturnCorrectPrice() {
             PhillyPoacher p = new PhillyPoacher();
             Assert.Equal(7.23, p.Price);
         }
@@ -75,36 +69,34 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [InlineData(true, true, true)]
         [InlineData(false, false, false)]
         public void ShouldReturnCorrectSpecialInstructions(bool includeSirloin, bool includeOnion,
-                                                            bool includeRoll)
-        {
+                                                            bool includeRoll) {
             PhillyPoacher p = new PhillyPoacher();
             p.Sirloin = includeSirloin;
             p.Onion = includeOnion;
             p.Roll = includeRoll;
 
-            if(includeSirloin) {
+            if (includeSirloin) {
                 Assert.DoesNotContain("Hold sirloin", p.SpecialInstructions);
             } else {
                 Assert.Contains("Hold sirloin", p.SpecialInstructions);
             }
-            if(includeOnion) {
+            if (includeOnion) {
                 Assert.DoesNotContain("Hold onions", p.SpecialInstructions);
             } else {
                 Assert.Contains("Hold onions", p.SpecialInstructions);
             }
-            if(includeRoll) {
+            if (includeRoll) {
                 Assert.DoesNotContain("Hold roll", p.SpecialInstructions);
             } else {
                 Assert.Contains("Hold roll", p.SpecialInstructions);
             }
-            if(includeSirloin && includeRoll && includeOnion) {
+            if (includeSirloin && includeRoll && includeOnion) {
                 Assert.Empty(p.SpecialInstructions);
             }
         }
 
         [Fact]
-        public void ShouldReturnCorrectToString()
-        {
+        public void ShouldReturnCorrectToString() {
             PhillyPoacher p = new PhillyPoacher();
             Assert.Equal("Philly Poacher", p.ToString());
         }

@@ -3,21 +3,14 @@
  * Class: SailorSodaTests.cs
  * Purpose: Test the SailorSoda.cs class in the Data library
  */
-using System;
-
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Enums;
 using Xunit;
 
-using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Enums;
-using BleakwindBuffet.Data.Drinks;
-
-namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
-{
-    public class SailorSodaTests
-    {
+namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
+    public class SailorSodaTests {
         [Fact]
-        public void ShouldIncludeIceByDefault()
-        {
+        public void ShouldIncludeIceByDefault() {
             SailorSoda ss = new SailorSoda();
             Assert.True(ss.Ice);
         }
@@ -75,8 +68,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small, 1.42)]
         [InlineData(Size.Medium, 1.74)]
         [InlineData(Size.Large, 2.07)]
-        public void ShouldHaveCorrectPriceForSize(Size size, double price)
-        {
+        public void ShouldHaveCorrectPriceForSize(Size size, double price) {
             SailorSoda ss = new SailorSoda();
             ss.Size = size;
             Assert.Equal(price, ss.Price);
@@ -95,17 +87,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ShouldHaveCorrectSpecialInstructions(bool includeIce)
-        {
+        public void ShouldHaveCorrectSpecialInstructions(bool includeIce) {
             SailorSoda ss = new SailorSoda();
             ss.Ice = includeIce;
-            if(!includeIce) {
+            if (!includeIce) {
                 Assert.Contains("Hold ice", ss.SpecialInstructions);
             } else {
                 Assert.Empty(ss.SpecialInstructions);
             }
         }
-        
+
         [Theory]
         [InlineData(SodaFlavor.Cherry, Size.Small, "Small Cherry Sailor Soda")]
         [InlineData(SodaFlavor.Cherry, Size.Medium, "Medium Cherry Sailor Soda")]
@@ -130,8 +121,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(SodaFlavor.Watermelon, Size.Small, "Small Watermelon Sailor Soda")]
         [InlineData(SodaFlavor.Watermelon, Size.Medium, "Medium Watermelon Sailor Soda")]
         [InlineData(SodaFlavor.Watermelon, Size.Large, "Large Watermelon Sailor Soda")]
-        public void ShouldHaveCorrectToStringBasedOnSizeAndFlavor(SodaFlavor flavor, Size size, string name)
-        {
+        public void ShouldHaveCorrectToStringBasedOnSizeAndFlavor(SodaFlavor flavor, Size size, string name) {
             SailorSoda ss = new SailorSoda();
             ss.Flavor = flavor;
             ss.Size = size;

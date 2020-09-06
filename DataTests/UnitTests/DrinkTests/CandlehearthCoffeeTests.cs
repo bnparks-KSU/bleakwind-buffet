@@ -3,19 +3,14 @@
  * Class: CandlehearthCoffeeTests.cs
  * Purpose: Test the CandlehearthCoffee.cs class in the Data library
  */
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Enums;
 using Xunit;
 
-using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Enums;
-using BleakwindBuffet.Data.Drinks;
-
-namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
-{
-    public class CandlehearthCoffeeTests
-    {
+namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
+    public class CandlehearthCoffeeTests {
         [Fact]
-        public void ShouldNotIncludeIceByDefault()
-        {
+        public void ShouldNotIncludeIceByDefault() {
             CandlehearthCoffee cof = new CandlehearthCoffee();
             Assert.False(cof.Ice);
         }
@@ -105,7 +100,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             CandlehearthCoffee cof = new CandlehearthCoffee();
             cof.Ice = includeIce;
             cof.RoomForCream = includeCream;
-            if(includeIce) {
+            if (includeIce) {
                 Assert.Contains("Add ice", cof.SpecialInstructions);
             } else {
                 Assert.DoesNotContain("Add ice", cof.SpecialInstructions);
@@ -127,8 +122,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false, Size.Small, "Small Candlehearth Coffee")]
         [InlineData(false, Size.Medium, "Medium Candlehearth Coffee")]
         [InlineData(false, Size.Large, "Large Candlehearth Coffee")]
-        public void ShouldReturnCorrectToStringBasedOnSize(bool decaf, Size size, string name)
-        {
+        public void ShouldReturnCorrectToStringBasedOnSize(bool decaf, Size size, string name) {
             CandlehearthCoffee cof = new CandlehearthCoffee();
             cof.Decaf = decaf;
             cof.Size = size;

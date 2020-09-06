@@ -3,9 +3,7 @@
  * Class name: ThalmorTriple.cs
  * Purpose: Class used to represent the triple burger, the Thalmor Triple.
  */
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>

@@ -3,19 +3,14 @@
  * Class: DragonbornWaffleFriesTests.cs
  * Purpose: Test the DragonbornWaffleFries.cs class in the Data library
  */
-using Xunit;
-
-using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
+using Xunit;
 
-namespace BleakwindBuffet.DataTests.UnitTests.SideTests
-{
-    public class DragonbornWaffleFriesTests
-    {
+namespace BleakwindBuffet.DataTests.UnitTests.SideTests {
+    public class DragonbornWaffleFriesTests {
         [Fact]
-        public void ShouldBeSmallByDefault()
-        {
+        public void ShouldBeSmallByDefault() {
             DragonbornWaffleFries wf = new DragonbornWaffleFries();
             Assert.Equal(Size.Small, wf.Size);
         }
@@ -41,8 +36,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small, 0.42)]
         [InlineData(Size.Medium, 0.76)]
         [InlineData(Size.Large, 0.96)]
-        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
-        {
+        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price) {
             DragonbornWaffleFries wf = new DragonbornWaffleFries();
             wf.Size = size;
             Assert.Equal(price, wf.Price);
@@ -62,8 +56,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small, "Small Dragonborn Waffle Fries")]
         [InlineData(Size.Medium, "Medium Dragonborn Waffle Fries")]
         [InlineData(Size.Large, "Large Dragonborn Waffle Fries")]
-        public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
-        {
+        public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name) {
             DragonbornWaffleFries wf = new DragonbornWaffleFries();
             wf.Size = size;
             Assert.Equal(name, wf.ToString());

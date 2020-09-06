@@ -3,10 +3,8 @@
  * Class name: WarriorWater.cs
  * Purpose: Class used to represent the Warrior Water drink.
  */
- using BleakwindBuffet.Data.Enums;
-using System;
+using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks {
     /// <summary>

@@ -4,9 +4,7 @@
  * Purpose: Class used to represent the mad otar grits side.
  */
 using BleakwindBuffet.Data.Enums;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Sides {
     /// <summary>

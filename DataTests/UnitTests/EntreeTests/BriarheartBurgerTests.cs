@@ -3,19 +3,14 @@
  * Class: BriarheartBurgerTests.cs
  * Purpose: Test the BriarheartBurger.cs class in the Data library
  */
+using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
-using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Entrees;
+namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+    public class BriarheartBurgerTests {
 
-namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
-{
-    public class BriarheartBurgerTests
-    {
-        
         [Fact]
-        public void ShouldIncludeBunByDefault()
-        {
+        public void ShouldIncludeBunByDefault() {
             BriarheartBurger bb = new BriarheartBurger();
             Assert.True(bb.Bun);
         }
@@ -105,8 +100,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [InlineData(true, true, true, true, true)]
         [InlineData(false, false, false, false, false)]
         public void ShouldReturnCorrectSpecialInstructions(bool includeBun, bool includeKetchup, bool includeMustard,
-                                                                    bool includePickle, bool includeCheese)
-        {
+                                                                    bool includePickle, bool includeCheese) {
             BriarheartBurger bb = new BriarheartBurger();
             bb.Bun = includeBun;
             bb.Ketchup = includeKetchup;
@@ -114,7 +108,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             bb.Pickle = includePickle;
             bb.Cheese = includeCheese;
 
-            if(includeBun) {
+            if (includeBun) {
                 Assert.DoesNotContain("Hold bun", bb.SpecialInstructions);
             } else {
                 Assert.Contains("Hold bun", bb.SpecialInstructions);
@@ -139,14 +133,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             } else {
                 Assert.Contains("Hold cheese", bb.SpecialInstructions);
             }
-            if(includeBun && includeCheese && includeKetchup && includeMustard && includePickle) {
+            if (includeBun && includeCheese && includeKetchup && includeMustard && includePickle) {
                 Assert.Empty(bb.SpecialInstructions);
             }
         }
 
         [Fact]
-        public void ShouldReturnCorrectToString()
-        {
+        public void ShouldReturnCorrectToString() {
             BriarheartBurger bb = new BriarheartBurger();
             Assert.Equal("Briarheart Burger", bb.ToString());
         }

@@ -3,26 +3,20 @@
  * Class: MadOtarGritsTests.cs
  * Purpose: Test the MadOtarGrits.cs class in the Data library
  */
-using Xunit;
-
-using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
+using Xunit;
 
-namespace BleakwindBuffet.DataTests.UnitTests.SideTests
-{
-    public class MadOtarGritsTests
-    {
+namespace BleakwindBuffet.DataTests.UnitTests.SideTests {
+    public class MadOtarGritsTests {
         [Fact]
-        public void ShouldBeSmallByDefault()
-        {
+        public void ShouldBeSmallByDefault() {
             MadOtarGrits mog = new MadOtarGrits();
             Assert.Equal(Size.Small, mog.Size);
         }
-                
+
         [Fact]
-        public void ShouldBeAbleToSetSize()
-        {
+        public void ShouldBeAbleToSetSize() {
             MadOtarGrits mog = new MadOtarGrits();
             mog.Size = Size.Medium;
             Assert.Equal(Size.Medium, mog.Size);
@@ -33,8 +27,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         }
 
         [Fact]
-        public void ShouldReturnCorrectStringOnSpecialInstructions()
-        {
+        public void ShouldReturnCorrectStringOnSpecialInstructions() {
             MadOtarGrits mog = new MadOtarGrits();
             Assert.Empty(mog.SpecialInstructions);
         }
@@ -43,8 +36,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small, 1.22)]
         [InlineData(Size.Medium, 1.58)]
         [InlineData(Size.Large, 1.93)]
-        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
-        {
+        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price) {
             MadOtarGrits mog = new MadOtarGrits();
             mog.Size = size;
             Assert.Equal(price, mog.Price);
@@ -64,8 +56,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small, "Small Mad Otar Grits")]
         [InlineData(Size.Medium, "Medium Mad Otar Grits")]
         [InlineData(Size.Large, "Large Mad Otar Grits")]
-        public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
-        {
+        public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name) {
             MadOtarGrits mog = new MadOtarGrits();
             mog.Size = size;
             Assert.Equal(name, mog.ToString());

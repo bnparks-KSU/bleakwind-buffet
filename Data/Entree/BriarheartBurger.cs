@@ -3,9 +3,7 @@
  * Class name: BriarheartBurger.cs
  * Purpose: Class used to represent the base burger, the Briarheart Burger.
  */
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>

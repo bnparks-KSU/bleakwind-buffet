@@ -3,13 +3,10 @@
  * Class: DoubleDraugrTests.cs
  * Purpose: Test the DoubleDraugr.cs class in the Data library
  */
+using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
-using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Entrees;
-
-namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
-{
+namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
     public class DoubleDraugrTests {
         [Fact]
         public void ShouldIncludeBunByDefault() {
@@ -42,8 +39,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
-        public void ShouldIncludeTomatoByDefault()
-        {
+        public void ShouldIncludeTomatoByDefault() {
             DoubleDraugr dd = new DoubleDraugr();
             Assert.True(dd.Tomato);
         }
@@ -133,15 +129,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
-        public void ShouldReturnCorrectPrice()
-        {
+        public void ShouldReturnCorrectPrice() {
             DoubleDraugr dd = new DoubleDraugr();
             Assert.Equal(7.32, dd.Price);
         }
 
         [Fact]
-        public void ShouldReturnCorrectCalories()
-        {
+        public void ShouldReturnCorrectCalories() {
             DoubleDraugr dd = new DoubleDraugr();
             Assert.Equal((uint)843, dd.Calories);
         }
@@ -187,17 +181,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             } else {
                 Assert.Contains("Hold cheese", dd.SpecialInstructions);
             }
-            if(includeTomato) {
+            if (includeTomato) {
                 Assert.DoesNotContain("Hold tomato", dd.SpecialInstructions);
             } else {
                 Assert.Contains("Hold tomato", dd.SpecialInstructions);
             }
-            if(includeLettuce) {
+            if (includeLettuce) {
                 Assert.DoesNotContain("Hold lettuce", dd.SpecialInstructions);
             } else {
                 Assert.Contains("Hold lettuce", dd.SpecialInstructions);
             }
-            if(includeMayo) {
+            if (includeMayo) {
                 Assert.DoesNotContain("Hold mayo", dd.SpecialInstructions);
             } else {
                 Assert.Contains("Hold mayo", dd.SpecialInstructions);
@@ -208,8 +202,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
-        public void ShouldReturnCorrectToString()
-        {
+        public void ShouldReturnCorrectToString() {
             DoubleDraugr dd = new DoubleDraugr();
             Assert.Equal("Double Draugr", dd.ToString());
         }

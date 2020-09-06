@@ -3,9 +3,7 @@
  * Class name: GardenOrcOmlette.cs
  * Purpose: Class used to represent the vegetarian food option.
  */
- using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>

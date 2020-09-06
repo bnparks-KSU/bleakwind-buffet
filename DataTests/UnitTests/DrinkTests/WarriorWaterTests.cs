@@ -4,11 +4,9 @@
  * Purpose: Test the WarriorWater.cs class in the Data library
  */
 
-using Xunit;
-
-using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Enums;
+using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
     public class WarriorWaterTests {
@@ -58,7 +56,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
         [Fact]
         public void ShouldHaveCorrectCalories() {
             WarriorWater ww = new WarriorWater();
-            Assert.Equal((uint) 0, ww.Calories);
+            Assert.Equal((uint)0, ww.Calories);
         }
 
         [Fact]
@@ -77,17 +75,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
             ww.Ice = includeIce;
             ww.Lemon = includeLemon;
 
-            if(includeIce) {
+            if (includeIce) {
                 Assert.DoesNotContain("Hold ice", ww.SpecialInstructions);
             } else {
                 Assert.Contains("Hold ice", ww.SpecialInstructions);
             }
-            if(includeLemon) {
+            if (includeLemon) {
                 Assert.Contains("Add lemon", ww.SpecialInstructions);
             } else {
                 Assert.DoesNotContain("Add lemon", ww.SpecialInstructions);
             }
-            if(includeIce && !includeLemon) {
+            if (includeIce && !includeLemon) {
                 Assert.Empty(ww.SpecialInstructions);
             }
         }
