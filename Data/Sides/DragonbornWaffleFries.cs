@@ -4,44 +4,37 @@
  * Purpose: Class used to represent the dragonborn waffle fries side.
  */
 using BleakwindBuffet.Data.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Sides {
     /// <summary>
     /// Represents a dradonborn waffle fries side option.
     /// </summary>
-    public class DragonbornWaffleFries {
-        private Size size = Size.Small;
+    public class DragonbornWaffleFries : Side {
         /// <summary>
         /// Gets the price of the side.
         /// </summary>
-        public double Price { get; private set; } = .42;
+        public override double Price {
+            get {
+                switch (Size) {
+                    case Size.Small: return 0.42;
+                    case Size.Medium: return 0.76;
+                    case Size.Large: return 0.96;
+                    default: throw new NotImplementedException("Should never occur");
+                }
+            }
+        }
         /// <summary>
         /// Gets the amount of calories in the side.
         /// </summary>
-        public uint Calories { get; private set; } = 77;
-        /// <summary>
-        /// Gets a list of special instructions for the side.
-        /// </summary>
-        public List<string> SpecialInstructions { get => new List<string>(); }
-        /// <summary>
-        /// Gets and sets the size of the side which also adjusts the Price and Calorie fields based off of the new size.
-        /// </summary>
-        public Size Size {
+        public override uint Calories {
             get {
-                return size;
-            }
-            set {
-                size = value;
-                if (value == Size.Small) {
-                    Price = .42;
-                    Calories = 77;
-                } else if (value == Size.Medium) {
-                    Price = .76;
-                    Calories = 89;
-                } else {
-                    Price = .96;
-                    Calories = 100;
+                switch (Size) {
+                    case Size.Small: return 77;
+                    case Size.Medium: return 89;
+                    case Size.Large: return 100;
+                    default: throw new NotImplementedException("Should never occur");
                 }
             }
         }
@@ -50,7 +43,7 @@ namespace BleakwindBuffet.Data.Sides {
         /// </summary>
         /// <returns>The name of the side in the format {Size} Dragonborn Waffle Fries</returns>
         public override string ToString() {
-            return size + " Dragonborn Waffle Fries";
+            return Size + " Dragonborn Waffle Fries";
         }
     }
 }

@@ -4,12 +4,25 @@
  * Purpose: Test the WarriorWater.cs class in the Data library
  */
 
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
     public class WarriorWaterTests {
+        [Fact]
+        public void ShouldBeADrink() {
+            WarriorWater item = new WarriorWater();
+            Assert.IsAssignableFrom<Drink>(item);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            WarriorWater item = new WarriorWater();
+            Assert.IsAssignableFrom<IOrderItem>(item);
+        }
+
         [Fact]
         public void ShouldContainIceByDefault() {
             WarriorWater ww = new WarriorWater();

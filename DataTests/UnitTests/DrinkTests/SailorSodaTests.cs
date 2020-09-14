@@ -3,12 +3,25 @@
  * Class: SailorSodaTests.cs
  * Purpose: Test the SailorSoda.cs class in the Data library
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
     public class SailorSodaTests {
+        [Fact]
+        public void ShouldBeADrink() {
+            SailorSoda item = new SailorSoda();
+            Assert.IsAssignableFrom<Drink>(item);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            SailorSoda item = new SailorSoda();
+            Assert.IsAssignableFrom<IOrderItem>(item);
+        }
+
         [Fact]
         public void ShouldIncludeIceByDefault() {
             SailorSoda ss = new SailorSoda();

@@ -3,11 +3,24 @@
  * Class: DoubleDraugrTests.cs
  * Purpose: Test the DoubleDraugr.cs class in the Data library
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
     public class DoubleDraugrTests {
+        [Fact]
+        public void ShouldBeAnEntree() {
+            DoubleDraugr item = new DoubleDraugr();
+            Assert.IsAssignableFrom<Entree>(item);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            DoubleDraugr item = new DoubleDraugr();
+            Assert.IsAssignableFrom<IOrderItem>(item);
+        }
+
         [Fact]
         public void ShouldIncludeBunByDefault() {
             DoubleDraugr dd = new DoubleDraugr();

@@ -3,12 +3,25 @@
  * Class: DragonbornWaffleFriesTests.cs
  * Purpose: Test the DragonbornWaffleFries.cs class in the Data library
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests {
     public class DragonbornWaffleFriesTests {
+        [Fact]
+        public void ShouldBeASide() {
+            DragonbornWaffleFries item = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<Side>(item);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            DragonbornWaffleFries item = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<IOrderItem>(item);
+        }
+
         [Fact]
         public void ShouldBeSmallByDefault() {
             DragonbornWaffleFries wf = new DragonbornWaffleFries();

@@ -4,22 +4,40 @@
  * Purpose: Class used to represent the Markath Milk drink.
  */
 using BleakwindBuffet.Data.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Drinks {
     /// <summary>
     /// Represents the Markath Milk drink.
     /// </summary>
-    public class MarkarthMilk {
-        private Size size = Size.Small;
+    public class MarkarthMilk : Drink {
         /// <summary>
         /// Gets the price of the drink.
         /// </summary>
-        public double Price { get; private set; } = 1.05;
+        public override double Price {
+            get {
+                switch (Size) {
+                    case Size.Small: return 1.05;
+                    case Size.Medium: return 1.11;
+                    case Size.Large: return 1.22;
+                    default: throw new NotImplementedException("Should never occur");
+                }
+            }
+        }
         /// <summary>
         /// Gets the amount of calories in the drink.
         /// </summary>
-        public uint Calories { get; private set; } = 56;
+        public override uint Calories {
+            get {
+                switch (Size) {
+                    case Size.Small: return 56;
+                    case Size.Medium: return 72;
+                    case Size.Large: return 93;
+                    default: throw new NotImplementedException("Should never occur");
+                }
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants ice in their drink.
         /// </summary>
@@ -27,32 +45,11 @@ namespace BleakwindBuffet.Data.Drinks {
         /// <summary>
         /// Gets a list of special instructions for the drink.
         /// </summary>
-        public List<string> SpecialInstructions {
+        public override List<string> SpecialInstructions {
             get {
                 List<string> ret = new List<string>();
                 if (Ice) ret.Add("Add ice");
                 return ret;
-            }
-        }
-        /// <summary>
-        /// Gets and sets the size of the drink which also adjusts the Price and Calorie fields based off of the new size.
-        /// </summary>
-        public Size Size {
-            get {
-                return size;
-            }
-            set {
-                size = value;
-                if (size == Size.Small) {
-                    Price = 1.05;
-                    Calories = 56;
-                } else if (size == Size.Medium) {
-                    Price = 1.11;
-                    Calories = 72;
-                } else {
-                    Price = 1.22;
-                    Calories = 93;
-                }
             }
         }
         /// <summary>

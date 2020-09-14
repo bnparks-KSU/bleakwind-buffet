@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// BriarheartBurger represents the base cheeseburger object.
     /// </summary>
-    public class BriarheartBurger {
+    public class BriarheartBurger : Entree {
         /// <summary>
         /// Gets or sets if the customer wants a bun.
         /// </summary>
@@ -33,15 +33,15 @@ namespace BleakwindBuffet.Data.Entrees {
         /// <summary>
         /// Gets the price of the item.
         /// </summary>
-        public virtual double Price => 6.32;
+        public override double Price => 6.32;
         /// <summary>
         /// Gets the calories of the item.
         /// </summary>
-        public virtual uint Calories => 743;
+        public override uint Calories => 743;
         /// <summary>
         /// Returns a list of the special instructions for the food item.
         /// </summary>
-        public virtual List<string> SpecialInstructions {
+        public override List<string> SpecialInstructions {
             get {
                 List<string> instructions = new List<string>();
                 if (!Bun) instructions.Add("Hold bun");

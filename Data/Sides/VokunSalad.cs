@@ -4,44 +4,37 @@
  * Purpose: Class used to represent the vokun salad side.
  */
 using BleakwindBuffet.Data.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Sides {
     /// <summary>
     /// Represents a vokun salad side menu option.
     /// </summary>
-    public class VokunSalad {
-        private Size size = Size.Small;
+    public class VokunSalad : Side {
         /// <summary>
-        /// Gets the price of the side menu option.
+        /// Gets the price of the side.
         /// </summary>
-        public double Price { get; private set; } = .93;
-        /// <summary>
-        /// Gets the amount of calories in the side menu option.
-        /// </summary>
-        public uint Calories { get; private set; } = 41;
-        /// <summary>
-        /// Gets a list of instructions for the side menu option.
-        /// </summary>
-        public List<string> SpecialInstructions { get => new List<string>(); }
-        /// <summary>
-        /// Gets and sets the size of the side which also adjusts the Price and Calorie fields based off of the new size.
-        /// </summary>
-        public Size Size {
+        public override double Price {
             get {
-                return size;
+                switch (Size) {
+                    case Size.Small: return 0.93;
+                    case Size.Medium: return 1.28;
+                    case Size.Large: return 1.82;
+                    default: throw new NotImplementedException("Should never occur");
+                }
             }
-            set {
-                size = value;
-                if (value == Size.Small) {
-                    Price = .93;
-                    Calories = 41;
-                } else if (value == Size.Medium) {
-                    Price = 1.28;
-                    Calories = 52;
-                } else {
-                    Price = 1.82;
-                    Calories = 73;
+        }
+        /// <summary>
+        /// Gets the amount of calories in the side.
+        /// </summary>
+        public override uint Calories {
+            get {
+                switch (Size) {
+                    case Size.Small: return 41;
+                    case Size.Medium: return 52;
+                    case Size.Large: return 73;
+                    default: throw new NotImplementedException("Should never occur");
                 }
             }
         }
@@ -50,7 +43,7 @@ namespace BleakwindBuffet.Data.Sides {
         /// </summary>
         /// <returns>The name of the side in the format {Size} Vokun Salad</returns>
         public override string ToString() {
-            return size + " Vokun Salad";
+            return Size + " Vokun Salad";
         }
     }
 }

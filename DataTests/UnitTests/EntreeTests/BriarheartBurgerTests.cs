@@ -3,11 +3,23 @@
  * Class: BriarheartBurgerTests.cs
  * Purpose: Test the BriarheartBurger.cs class in the Data library
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
     public class BriarheartBurgerTests {
+        [Fact]
+        public void ShouldBeAnEntree() {
+            BriarheartBurger item = new BriarheartBurger();
+            Assert.IsAssignableFrom<Entree>(item);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            BriarheartBurger item = new BriarheartBurger();
+            Assert.IsAssignableFrom<IOrderItem>(item);
+        }
 
         [Fact]
         public void ShouldIncludeBunByDefault() {

@@ -3,11 +3,24 @@
  * Class: SmokehouseSkeletonTests.cs
  * Purpose: Test the SmokehouseSkeleton.cs class in the Data library
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
     public class SmokehouseSkeletonTests {
+        [Fact]
+        public void ShouldBeAnEntree() {
+            SmokehouseSkeleton item = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<Entree>(item);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            SmokehouseSkeleton item = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<IOrderItem>(item);
+        }
+
         [Fact]
         public void ShouldInlcudeSausageByDefault() {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();

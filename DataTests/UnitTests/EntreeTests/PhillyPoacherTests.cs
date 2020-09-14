@@ -3,11 +3,24 @@
  * Class: PhillyPoacherTests.cs
  * Purpose: Test the PhillyPoacher.cs class in the Data library
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
     public class PhillyPoacherTests {
+        [Fact]
+        public void ShouldBeAnEntree() {
+            PhillyPoacher item = new PhillyPoacher();
+            Assert.IsAssignableFrom<Entree>(item);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            PhillyPoacher item = new PhillyPoacher();
+            Assert.IsAssignableFrom<IOrderItem>(item);
+        }
+
         [Fact]
         public void ShouldInlcudeSirloinByDefault() {
             PhillyPoacher p = new PhillyPoacher();

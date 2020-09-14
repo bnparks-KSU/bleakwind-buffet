@@ -3,12 +3,25 @@
  * Class: FriedMiraakTests.cs
  * Purpose: Test the FriedMiraak.cs class in the Data library
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests {
     public class FriedMiraakTests {
+        [Fact]
+        public void ShouldBeASide() {
+            FriedMiraak item = new FriedMiraak();
+            Assert.IsAssignableFrom<Side>(item);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            FriedMiraak item = new FriedMiraak();
+            Assert.IsAssignableFrom<IOrderItem>(item);
+        }
+
         [Fact]
         public void ShouldBeSmallByDefault() {
             FriedMiraak fm = new FriedMiraak();

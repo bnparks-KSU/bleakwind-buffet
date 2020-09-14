@@ -3,11 +3,24 @@
  * Class: GardenOrcOmeletteTests.cs
  * Purpose: Test the GardenOrcOmelette.cs class in the Data library
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
     public class GardenOrcOmeletteTests {
+        [Fact]
+        public void ShouldBeAnEntree() {
+            GardenOrcOmelette item = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<Entree>(item);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            GardenOrcOmelette item = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<IOrderItem>(item);
+        }
+
         [Fact]
         public void ShouldInlcudeBroccoliByDefault() {
             GardenOrcOmelette goo = new GardenOrcOmelette();

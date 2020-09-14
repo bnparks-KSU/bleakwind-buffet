@@ -3,12 +3,25 @@
  * Class: VokunSaladTests.cs
  * Purpose: Test the VokunSalad.cs class in the Data library
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests {
     public class VokunSaladTests {
+        [Fact]
+        public void ShouldBeASide() {
+            VokunSalad item = new VokunSalad();
+            Assert.IsAssignableFrom<Side>(item);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            VokunSalad item = new VokunSalad();
+            Assert.IsAssignableFrom<IOrderItem>(item);
+        }
+
         [Fact]
         public void ShouldBeSmallByDefault() {
             VokunSalad vs = new VokunSalad();

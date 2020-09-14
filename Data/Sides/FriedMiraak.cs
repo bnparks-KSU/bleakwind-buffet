@@ -4,44 +4,37 @@
  * Purpose: Class used to represent the fried miraak side.
  */
 using BleakwindBuffet.Data.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Sides {
     /// <summary>
     /// Represents a fried miraak side menu option.
     /// </summary>
-    public class FriedMiraak {
-        private Size size = Size.Small;
+    public class FriedMiraak : Side {
         /// <summary>
-        /// Gets the price of the side option.
+        /// Gets the price of the side.
         /// </summary>
-        public double Price { get; private set; } = 1.78;
-        /// <summary>
-        /// Gets the amount of calories in the side option.
-        /// </summary>
-        public uint Calories { get; private set; } = 151;
-        /// <summary>
-        /// Gets a list of special instructions for the side option.
-        /// </summary>
-        public List<string> SpecialInstructions { get => new List<string>(); }
-        /// <summary>
-        /// Gets and sets the size of the side which also adjusts the Price and Calorie fields based off of the new size.
-        /// </summary>
-        public Size Size {
+        public override double Price {
             get {
-                return size;
+                switch (Size) {
+                    case Size.Small: return 1.78;
+                    case Size.Medium: return 2.01;
+                    case Size.Large: return 2.88;
+                    default: throw new NotImplementedException("Should never occur");
+                }
             }
-            set {
-                size = value;
-                if (value == Size.Small) {
-                    Price = 1.78;
-                    Calories = 151;
-                } else if (value == Size.Medium) {
-                    Price = 2.01;
-                    Calories = 236;
-                } else {
-                    Price = 2.88;
-                    Calories = 306;
+        }
+        /// <summary>
+        /// Gets the amount of calories in the side.
+        /// </summary>
+        public override uint Calories {
+            get {
+                switch (Size) {
+                    case Size.Small: return 151;
+                    case Size.Medium: return 236;
+                    case Size.Large: return 306;
+                    default: throw new NotImplementedException("Should never occur");
                 }
             }
         }
@@ -50,7 +43,7 @@ namespace BleakwindBuffet.Data.Sides {
         /// </summary>
         /// <returns>The name of the side in the format {Size} Fried Miraak</returns>
         public override string ToString() {
-            return size + " Fried Miraak";
+            return Size + " Fried Miraak";
         }
     }
 }

@@ -9,19 +9,19 @@ namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// Represents a T-Bone menu option.
     /// </summary>
-    public class ThugsTBone {
+    public class ThugsTBone : Entree {
         /// <summary>
         /// Gets the price of the menu item.
         /// </summary>
-        public double Price => 6.44;
+        public override double Price => 6.44;
         /// <summary>
         /// Gets the amount of calories in the menu item.
         /// </summary>
-        public uint Calories => 982;
+        public override uint Calories => 982;
         /// <summary>
         /// Gets a list of the special instructions for the menu item (always an empty list).
         /// </summary>
-        public List<string> SpecialInstructions {
+        public override List<string> SpecialInstructions {
             get {
                 return new List<string>();
             }

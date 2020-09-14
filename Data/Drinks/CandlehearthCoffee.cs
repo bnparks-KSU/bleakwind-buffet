@@ -4,22 +4,40 @@
  * Purpose: Class used to represent the candlehearth coffee drink.
  */
 using BleakwindBuffet.Data.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Drinks {
     /// <summary>
     /// Represents the Candlehearth coffee drink.
     /// </summary>
-    public class CandlehearthCoffee {
-        private Size size = Size.Small;
+    public class CandlehearthCoffee : Drink {
         /// <summary>
         /// Gets the price of the drink.
         /// </summary>
-        public double Price { get; private set; } = .75;
+        public override double Price {
+            get {
+                switch (Size) {
+                    case Size.Small: return 0.75;
+                    case Size.Medium: return 1.25;
+                    case Size.Large: return 1.75;
+                    default: throw new NotImplementedException("Should never occur");
+                }
+            }
+        }
         /// <summary>
         /// Gets the amount of calories in the drink.
         /// </summary>
-        public uint Calories { get; private set; } = 7;
+        public override uint Calories {
+            get {
+                switch (Size) {
+                    case Size.Small: return 7;
+                    case Size.Medium: return 10;
+                    case Size.Large: return 20;
+                    default: throw new NotImplementedException("Should never occur");
+                }
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants ice in their drink.
         /// </summary>
@@ -35,33 +53,12 @@ namespace BleakwindBuffet.Data.Drinks {
         /// <summary>
         /// Gets a list of special instructions for the drink.
         /// </summary>
-        public List<string> SpecialInstructions {
+        public override List<string> SpecialInstructions {
             get {
                 List<string> ret = new List<string>();
                 if (Ice) ret.Add("Add ice");
                 if (RoomForCream) ret.Add("Add cream");
                 return ret;
-            }
-        }
-        /// <summary>
-        /// Gets and sets the size of the drink which also adjusts the Price and Calorie fields based off of the new size.
-        /// </summary>
-        public Size Size {
-            get {
-                return size;
-            }
-            set {
-                size = value;
-                if (size == Size.Small) {
-                    Price = .75;
-                    Calories = 7;
-                } else if (size == Size.Medium) {
-                    Price = 1.25;
-                    Calories = 10;
-                } else {
-                    Price = 1.75;
-                    Calories = 20;
-                }
             }
         }
         /// <summary>

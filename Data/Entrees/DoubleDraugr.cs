@@ -7,9 +7,29 @@ using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
-    /// DoubleDraugr represents a double cheeseburger and is built off of the BriarheartBurger object with additional topping choices.
+    /// DoubleDraugr represents a double cheeseburger.
     /// </summary>
-    public class DoubleDraugr : BriarheartBurger {
+    public class DoubleDraugr : Entree {
+        /// <summary>
+        /// Gets or sets if the customer wants a bun.
+        /// </summary>
+        public bool Bun { get; set; } = true;
+        /// <summary>
+        /// Gets or sets if the customer wants ketchup.
+        /// </summary>
+        public bool Ketchup { get; set; } = true;
+        /// <summary>
+        /// Gets or sets if the customer wants mustard.
+        /// </summary>
+        public bool Mustard { get; set; } = true;
+        /// <summary>
+        /// Gets or sets if the customer wants pickles.
+        /// </summary>
+        public bool Pickle { get; set; } = true;
+        /// <summary>
+        /// Gets or sets if the customer wants cheese.
+        /// </summary>
+        public bool Cheese { get; set; } = true;
         /// <summary>
         /// Gets or sets if the customer wants tomato on their burger.
         /// </summary>
@@ -35,7 +55,12 @@ namespace BleakwindBuffet.Data.Entrees {
         /// </summary>
         public override List<string> SpecialInstructions {
             get {
-                List<string> ret = base.SpecialInstructions;
+                List<string> ret = new List<string>();
+                if (!Bun) ret.Add("Hold bun");
+                if (!Ketchup) ret.Add("Hold ketchup");
+                if (!Mustard) ret.Add("Hold mustard");
+                if (!Pickle) ret.Add("Hold pickle");
+                if (!Cheese) ret.Add("Hold cheese");
                 if (!Tomato) ret.Add("Hold tomato");
                 if (!Lettuce) ret.Add("Hold lettuce");
                 if (!Mayo) ret.Add("Hold mayo");

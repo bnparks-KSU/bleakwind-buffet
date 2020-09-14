@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// PhillyPoacher is a philly cheesesteak food option.
     /// </summary>
-    public class PhillyPoacher {
+    public class PhillyPoacher : Entree {
         /// <summary>
         /// Gets or sets if the customer wants sirloin.
         /// </summary>
@@ -25,15 +25,15 @@ namespace BleakwindBuffet.Data.Entrees {
         /// <summary>
         /// Gets the price of the menu item.
         /// </summary>
-        public double Price => 7.23;
+        public override double Price => 7.23;
         /// <summary>
         /// Gets the amount of calories in the menu item.
         /// </summary>
-        public uint Calories => 784;
+        public override uint Calories => 784;
         /// <summary>
         /// Gets a list of special instructions for the menu item.
         /// </summary>
-        public List<string> SpecialInstructions {
+        public override List<string> SpecialInstructions {
             get {
                 List<string> ret = new List<string>();
                 if (!Sirloin) ret.Add("Hold sirloin");

@@ -3,12 +3,25 @@
  * Class: AretinoAppleJuiceTests.cs
  * Purpose: Test the AretinoAppleJuice.cs class in the Data library
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
     public class AretinoAppleJuiceTests {
+        [Fact]
+        public void ShouldBeADrink() {
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<Drink>(aaj);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<IOrderItem>(aaj);
+        }
+
         [Fact]
         public void ShouldNotIncludeIceByDefault() {
             AretinoAppleJuice aaj = new AretinoAppleJuice();

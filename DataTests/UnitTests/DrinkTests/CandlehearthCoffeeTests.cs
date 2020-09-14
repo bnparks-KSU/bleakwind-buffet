@@ -3,12 +3,25 @@
  * Class: CandlehearthCoffeeTests.cs
  * Purpose: Test the CandlehearthCoffee.cs class in the Data library
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
     public class CandlehearthCoffeeTests {
+        [Fact]
+        public void ShouldBeADrink() {
+            CandlehearthCoffee item = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<Drink>(item);
+        }
+
+        [Fact]
+        public void ShouldBeAnOrderItem() {
+            CandlehearthCoffee item = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<IOrderItem>(item);
+        }
+
         [Fact]
         public void ShouldNotIncludeIceByDefault() {
             CandlehearthCoffee cof = new CandlehearthCoffee();

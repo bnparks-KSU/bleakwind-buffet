@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// GardenOrcOmlette is a vegetarian breakfast option.
     /// </summary>
-    public class GardenOrcOmelette {
+    public class GardenOrcOmelette : Entree {
         /// <summary>
         /// Gets or sets if the customer wants broccoli.
         /// </summary>
@@ -29,15 +29,15 @@ namespace BleakwindBuffet.Data.Entrees {
         /// <summary>
         /// Gets the price of the menu item.
         /// </summary>
-        public double Price => 4.57;
+        public override double Price => 4.57;
         /// <summary>
         /// Gets the amount of calories in the menu item.
         /// </summary>
-        public uint Calories => 404;
+        public override uint Calories => 404;
         /// <summary>
         /// Gets a list of the special instructions for the menu item.
         /// </summary>
-        public List<string> SpecialInstructions {
+        public override List<string> SpecialInstructions {
             get {
                 List<string> ret = new List<string>();
                 if (!Broccoli) ret.Add("Hold broccoli");
