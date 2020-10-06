@@ -6,18 +6,49 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks {
     /// <summary>
     /// Represents the Aretino Apple Juice drink.
     /// </summary>
-    public class AretinoAppleJuice : Drink {
+    public class AretinoAppleJuice : Drink, INotifyPropertyChanged {
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+        private bool _ice = false;
+        /// <summary>
+        /// Gets or sets if the customer wants ice in their drink.
+        /// </summary>
+        public bool Ice {
+            get {
+                return _ice;
+            }
+            set {
+                _ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
+        }
+        /// <summary>
+        /// Gets or sets the size of the drink the customer wants.
+        /// </summary>
+        public override Size Size {
+            get {
+                return _size;
+            }
+            set {
+                _size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
+        }
+
         /// <summary>
         /// Gets the price of the drink.
         /// </summary>
         public override double Price {
             get {
-                switch (Size) {
+                switch (_size) {
                     case Size.Small: return 0.62;
                     case Size.Medium: return 0.87;
                     case Size.Large: return 1.01;
@@ -38,10 +69,7 @@ namespace BleakwindBuffet.Data.Drinks {
                 }
             }
         }
-        /// <summary>
-        /// Gets or sets if the customer wants ice in their drink.
-        /// </summary>
-        public bool Ice { get; set; } = false;
+
         /// <summary>
         /// List of special instructions for the drink.
         /// </summary>
@@ -52,6 +80,7 @@ namespace BleakwindBuffet.Data.Drinks {
                 return ret;
             }
         }
+
         /// <summary>
         /// Returns the name and size of the drink.
         /// </summary>

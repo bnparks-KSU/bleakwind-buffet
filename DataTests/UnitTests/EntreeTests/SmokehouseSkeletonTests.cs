@@ -131,5 +131,37 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             Assert.Equal("Smokehouse Skeleton", ss.ToString());
         }
+
+        [Fact]
+        public void SausageChangeShouldTriggerPropertyChanged() {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Sausage", () => {
+                ss.SausageLink = false;
+            });
+        }
+
+        [Fact]
+        public void HashbrownsChangeShouldTriggerPropertyChanged() {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Hashbrowns", () => {
+                ss.HashBrowns = false;
+            });
+        }
+
+        [Fact]
+        public void PancakeChangeShouldTriggerPropertyChanged() {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Pancake", () => {
+                ss.Pancake = false;
+            });
+        }
+
+        [Fact]
+        public void EggChangeShouldTriggerPropertyChanged() {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Egg", () => {
+                ss.Egg = false;
+            });
+        }
     }
 }

@@ -6,12 +6,29 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Sides {
     /// <summary>
     /// Represents a vokun salad side menu option.
     /// </summary>
-    public class VokunSalad : Side {
+    public class VokunSalad : Side, INotifyPropertyChanged {
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Gets or sets the size of the side the customer wants.
+        /// </summary>
+        public override Size Size {
+            get {
+                return _size;
+            }
+            set {
+                _size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
+        }
         /// <summary>
         /// Gets the price of the side.
         /// </summary>

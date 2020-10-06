@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Brian Parks
+ * Class name: MainWindow.xaml.cs
+ * Purpose: Class used to handle the implementation of the MainWindow screen.
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

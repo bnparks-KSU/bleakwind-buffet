@@ -219,5 +219,69 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             DoubleDraugr dd = new DoubleDraugr();
             Assert.Equal("Double Draugr", dd.ToString());
         }
+
+        [Fact]
+        public void BunChangeShouldTriggerPropertyChanged() {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.PropertyChanged(dd, "Bun", () => {
+                dd.Bun = false;
+            });
+        }
+
+        [Fact]
+        public void KetchupChangeShouldTriggerPropertyChanged() {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.PropertyChanged(dd, "Ketchup", () => {
+                dd.Ketchup = false;
+            });
+        }
+
+        [Fact]
+        public void MustardChangeShouldTriggerPropertyChanged() {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.PropertyChanged(dd, "Mustard", () => {
+                dd.Mustard = false;
+            });
+        }
+
+        [Fact]
+        public void PickleChangeShouldTriggerPropertyChanged() {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.PropertyChanged(dd, "Pickle", () => {
+                dd.Pickle = false;
+            });
+        }
+
+        [Fact]
+        public void CheeseChangeShouldTriggerPropertyChanged() {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.PropertyChanged(dd, "Cheese", () => {
+                dd.Cheese = false;
+            });
+        }
+
+        [Fact]
+        public void TomatoChangeShouldTriggerPropertyChanged() {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.PropertyChanged(dd, "Tomato", () => {
+                dd.Tomato = false;
+            });
+        }
+
+        [Fact]
+        public void LettuceChangeShouldTriggerPropertyChanged() {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.PropertyChanged(dd, "Lettuce", () => {
+                dd.Lettuce = false;
+            });
+        }
+
+        [Fact]
+        public void MayoChangeShouldTriggerPropertyChanged() {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.PropertyChanged(dd, "Mayo", () => {
+                dd.Mayo = false;
+            });
+        }
     }
 }

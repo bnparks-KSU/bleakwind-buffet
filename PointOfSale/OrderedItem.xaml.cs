@@ -1,25 +1,18 @@
-﻿using BleakwindBuffet.Data;
-using System;
-using System.Collections.Generic;
+﻿/*
+ * Author: Brian Parks
+ * Class name: OrderedItem.xaml.cs
+ * Purpose: Class used to handle the implementation of an ordered item button side control.
+ */
+using BleakwindBuffet.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PointOfSale {
     /// <summary>
     /// Interaction logic for OrderedItem.xaml
     /// </summary>
     public partial class OrderedItem : Button {
-        private IOrderItem item;
         private ItemSelectionScreen iss;
 
         /// <summary>
@@ -34,7 +27,7 @@ namespace PointOfSale {
         /// <param name="orderItem"></param>
         public OrderedItem(IOrderItem orderItem, ItemSelectionScreen iss) {
             InitializeComponent();
-            this.item = orderItem;
+            this.DataContext = orderItem;
             this.iss = iss;
             this.Content = orderItem.GetType().Name;
         }
@@ -55,7 +48,7 @@ namespace PointOfSale {
 
             //((Grid)var).Children.RemoveAt(0);
             iss.Visibility = Visibility.Hidden;
-            ((Grid)var).Children.Insert(0, new CustomizationScreen(item, iss));
+            ((Grid)var).Children.Insert(0, new CustomizationScreen(this.DataContext as IOrderItem, iss));
             ((StackPanel)this.Parent).Children.Remove(this);
         }
     }

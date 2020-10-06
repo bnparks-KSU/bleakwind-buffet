@@ -6,12 +6,42 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks {
     /// <summary>
     /// Represents the Markath Milk drink.
     /// </summary>
-    public class MarkarthMilk : Drink {
+    public class MarkarthMilk : Drink, INotifyPropertyChanged {
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+        private bool _ice = false;
+        /// <summary>
+        /// Gets or sets if the customer wants ice in their drink.
+        /// </summary>
+        public bool Ice {
+            get {
+                return _ice;
+            }
+            set {
+                _ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
+        }
+        /// <summary>
+        /// Gets or sets the size of the drink the customer wants.
+        /// </summary>
+        public override Size Size {
+            get {
+                return _size;
+            }
+            set {
+                _size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
+        }
         /// <summary>
         /// Gets the price of the drink.
         /// </summary>
@@ -38,10 +68,6 @@ namespace BleakwindBuffet.Data.Drinks {
                 }
             }
         }
-        /// <summary>
-        /// Gets or sets if the customer wants ice in their drink.
-        /// </summary>
-        public bool Ice { get; set; } = false;
         /// <summary>
         /// Gets a list of special instructions for the drink.
         /// </summary>

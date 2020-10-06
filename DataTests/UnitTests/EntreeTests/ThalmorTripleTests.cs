@@ -263,5 +263,85 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             ThalmorTriple tt = new ThalmorTriple();
             Assert.Equal("Thalmor Triple", tt.ToString());
         }
+
+        [Fact]
+        public void BunChangeShouldTriggerPropertyChanged() {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Bun", () => {
+                tt.Bun = false;
+            });
+        }
+
+        [Fact]
+        public void KetchupChangeShouldTriggerPropertyChanged() {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Ketchup", () => {
+                tt.Ketchup = false;
+            });
+        }
+
+        [Fact]
+        public void MustardChangeShouldTriggerPropertyChanged() {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Mustard", () => {
+                tt.Mustard = false;
+            });
+        }
+
+        [Fact]
+        public void PickleChangeShouldTriggerPropertyChanged() {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Pickle", () => {
+                tt.Pickle = false;
+            });
+        }
+
+        [Fact]
+        public void CheeseChangeShouldTriggerPropertyChanged() {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Cheese", () => {
+                tt.Cheese = false;
+            });
+        }
+
+        [Fact]
+        public void TomatoChangeShouldTriggerPropertyChanged() {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Tomato", () => {
+                tt.Tomato = false;
+            });
+        }
+
+        [Fact]
+        public void LettuceChangeShouldTriggerPropertyChanged() {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Lettuce", () => {
+                tt.Lettuce = false;
+            });
+        }
+
+        [Fact]
+        public void MayoChangeShouldTriggerPropertyChanged() {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Mayo", () => {
+                tt.Mayo = false;
+            });
+        }
+
+        [Fact]
+        public void BacoChangeShouldTriggerPropertyChanged() {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Bacon", () => {
+                tt.Bacon = false;
+            });
+        }
+
+        [Fact]
+        public void EggChangeShouldTriggerPropertyChanged() {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Egg", () => {
+                tt.Egg = false;
+            });
+        }
     }
 }

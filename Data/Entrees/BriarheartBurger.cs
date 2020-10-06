@@ -4,32 +4,82 @@
  * Purpose: Class used to represent the base burger, the Briarheart Burger.
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// BriarheartBurger represents the base cheeseburger object.
     /// </summary>
-    public class BriarheartBurger : Entree {
+    public class BriarheartBurger : Entree, INotifyPropertyChanged {
+        private bool _bun = true;
+        private bool _ketchup = true;
+        private bool _mustard = true;
+        private bool _pickle = true;
+        private bool _cheese = true;
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Gets or sets if the customer wants a bun.
         /// </summary>
-        public bool Bun { get; set; } = true;
+        public bool Bun {
+            get {
+                return _bun;
+            }
+            set {
+                _bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants ketchup.
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Ketchup {
+            get {
+                return _ketchup;
+            }
+            set {
+                _ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants mustard.
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Mustard {
+            get {
+                return _mustard;
+            }
+            set {
+                _mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants pickles.
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle {
+            get {
+                return _pickle;
+            }
+            set {
+                _pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants cheese.
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese {
+            get {
+                return _cheese;
+            }
+            set {
+                _cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+            }
+        }
         /// <summary>
         /// Gets the price of the item.
         /// </summary>

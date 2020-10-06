@@ -4,52 +4,147 @@
  * Purpose: Class used to represent the triple burger, the Thalmor Triple.
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// ThalmoreTriple represents a triple cheeseburger.
     /// </summary>
-    public class ThalmorTriple : Entree {
+    public class ThalmorTriple : Entree, INotifyPropertyChanged {
+        private bool _bun = true;
+        private bool _ketchup = true;
+        private bool _mustard = true;
+        private bool _pickle = true;
+        private bool _cheese = true;
+        private bool _tomato = true;
+        private bool _lettuce = true;
+        private bool _mayo = true;
+        private bool _bacon = true;
+        private bool _egg = true;
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Gets or sets if the customer wants a bun.
         /// </summary>
-        public bool Bun { get; set; } = true;
+        public bool Bun {
+            get {
+                return _bun;
+            }
+            set {
+                _bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants ketchup.
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Ketchup {
+            get {
+                return _ketchup;
+            }
+            set {
+                _ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants mustard.
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Mustard {
+            get {
+                return _mustard;
+            }
+            set {
+                _mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants pickles.
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle {
+            get {
+                return _pickle;
+            }
+            set {
+                _pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants cheese.
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese {
+            get {
+                return _cheese;
+            }
+            set {
+                _cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants tomato on their burger.
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        public bool Tomato {
+            get {
+                return _tomato;
+            }
+            set {
+                _tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants lettuce on their burger.
         /// </summary>
-        public bool Lettuce { get; set; } = true;
+        public bool Lettuce {
+            get {
+                return _lettuce;
+            }
+            set {
+                _lettuce = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants mayo on their burger.
         /// </summary>
-        public bool Mayo { get; set; } = true;
+        public bool Mayo {
+            get {
+                return _mayo;
+            }
+            set {
+                _mayo = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants bacon.
         /// </summary>
-        public bool Bacon { get; set; } = true;
+        public bool Bacon {
+            get {
+                return _bacon;
+            }
+            set {
+                _bacon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bacon"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants eggs.
         /// </summary>
-        public bool Egg { get; set; } = true;
+        public bool Egg {
+            get {
+                return _egg;
+            }
+            set {
+                _egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+            }
+        }
         /// <summary>
         /// Gets the price of the burger.
         /// </summary>

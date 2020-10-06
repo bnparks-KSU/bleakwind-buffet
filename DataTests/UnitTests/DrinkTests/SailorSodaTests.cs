@@ -140,5 +140,29 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
             ss.Size = size;
             Assert.Equal(name, ss.ToString());
         }
+
+        [Fact]
+        public void SizeChangeShouldTriggerPropertyChanged() {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Size", () => {
+                ss.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void IceChangeShouldTriggerPropertyChanged() {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Ice", () => {
+                ss.Ice = true;
+            });
+        }
+
+        [Fact]
+        public void FlavorChangeShouldTriggerPropertyChanged() {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "SodaFlavor", () => {
+                ss.Flavor = SodaFlavor.Lemon;
+            });
+        }
     }
 }

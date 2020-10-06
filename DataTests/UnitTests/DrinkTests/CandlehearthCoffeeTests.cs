@@ -142,5 +142,37 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
 
             Assert.Equal(cof.ToString(), name);
         }
+
+        [Fact]
+        public void SizeChangeShouldTriggerPropertyChanged() {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            Assert.PropertyChanged(chc, "Size", () => {
+                chc.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void IceChangeShouldTriggerPropertyChanged() {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            Assert.PropertyChanged(chc, "Ice", () => {
+                chc.Ice = true;
+            });
+        }
+
+        [Fact]
+        public void DecafChangeShouldTriggerPropertyChanged() {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            Assert.PropertyChanged(chc, "Decaf", () => {
+                chc.Decaf = true;
+            });
+        }
+
+        [Fact]
+        public void CreamChangeShouldTriggerPropertyChanged() {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            Assert.PropertyChanged(chc, "RoomForCream", () => {
+                chc.RoomForCream = true;
+            });
+        }
     }
 }

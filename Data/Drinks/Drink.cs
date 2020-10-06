@@ -4,19 +4,19 @@
  * Purpose: Base class that contains the fields shared by all drinks.
  */
 using BleakwindBuffet.Data.Enums;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks {
     /// <summary>
     /// A base class that represents the properties shared by all drinks.
     /// </summary>
     public abstract class Drink : IOrderItem {
+        protected Size _size = Size.Small;
         /// <summary>
         /// The size of the drink.
         /// </summary>
-        public virtual Size Size { get; set; }
+        public abstract Size Size { get; set; }
         /// <summary>
         /// The price of the drink.
         /// </summary>
@@ -32,5 +32,7 @@ namespace BleakwindBuffet.Data.Drinks {
         /// The list of special instructions used to prepare the drink.
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        public abstract event PropertyChangedEventHandler PropertyChanged;
     }
 }

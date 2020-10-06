@@ -3,14 +3,57 @@
  * Class name: WarriorWater.cs
  * Purpose: Class used to represent the Warrior Water drink.
  */
-using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
+using System.ComponentModel;
+using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks {
     /// <summary>
     /// Represents the WarriorWater drink.
     /// </summary>
-    public class WarriorWater : Drink {
+    public class WarriorWater : Drink, INotifyPropertyChanged {
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+        private bool _ice = true;
+        private bool _lemon = false;
+        /// <summary>
+        /// Gets or sets if the customer wants ice in their drink.
+        /// </summary>
+        public bool Ice {
+            get {
+                return _ice;
+            }
+            set {
+                _ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
+        }
+        /// <summary>
+        /// Gets or sets if the customer wants lemon in their drink.
+        /// </summary>
+        public bool Lemon {
+            get {
+                return _lemon;
+            }
+            set {
+                _lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+            }
+        }
+        /// <summary>
+        /// Gets or sets the size of the drink the customer wants.
+        /// </summary>
+        public override Size Size {
+            get {
+                return _size;
+            }
+            set {
+                _size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
+        }
         /// <summary>
         /// Gets the price of the drink.
         /// </summary>
@@ -19,14 +62,6 @@ namespace BleakwindBuffet.Data.Drinks {
         /// Gets the amount of calories in the drink.
         /// </summary>
         public override uint Calories { get; } = 0;
-        /// <summary>
-        /// Gets or sets if the customer wants ice in their drink.
-        /// </summary>
-        public bool Ice { get; set; } = true;
-        /// <summary>
-        /// Gets or sets if the customer wants lemon in their drink.
-        /// </summary>
-        public bool Lemon { get; set; } = false;
         /// <summary>
         /// Gets a list of special instructions for the drink.
         /// </summary>

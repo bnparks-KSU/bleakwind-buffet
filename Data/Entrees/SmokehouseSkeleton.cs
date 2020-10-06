@@ -4,28 +4,69 @@
  * Purpose: Class used to represent the breakfast combo, the SmokehouseSkeleton.
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// Represents the SmokehouseSkeleton menu option.
     /// </summary>
-    public class SmokehouseSkeleton : Entree{
+    public class SmokehouseSkeleton : Entree, INotifyPropertyChanged {
+        private bool _sausage = true;
+        private bool _egg = true;
+        private bool _hashbrown = true;
+        private bool _pancake = true;
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Gets or sets if the customer wants sausage.
         /// </summary>
-        public bool SausageLink { get; set; } = true;
+        public bool SausageLink {
+            get {
+                return _sausage;
+            }
+            set {
+                _sausage = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sausage"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants eggs.
         /// </summary>
-        public bool Egg { get; set; } = true;
+        public bool Egg {
+            get {
+                return _egg;
+            }
+            set {
+                _egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants hash browns.
         /// </summary>
-        public bool HashBrowns { get; set; } = true;
+        public bool HashBrowns {
+            get {
+                return _hashbrown;
+            }
+            set {
+                _hashbrown = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants pancakes.
         /// </summary>
-        public bool Pancake { get; set; } = true;
+        public bool Pancake {
+            get {
+                return _pancake;
+            }
+            set {
+                _pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+            }
+        }
         /// <summary>
         /// Gets the price of the menu item.
         /// </summary>

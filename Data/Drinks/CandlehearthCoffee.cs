@@ -6,12 +6,68 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks {
     /// <summary>
     /// Represents the Candlehearth coffee drink.
     /// </summary>
-    public class CandlehearthCoffee : Drink {
+    public class CandlehearthCoffee : Drink, INotifyPropertyChanged {
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+        private bool _ice = false;
+        private bool _roomForCream = false;
+        private bool _decaf = false;
+        /// <summary>
+        /// Gets or sets if the customer wants ice in their drink.
+        /// </summary>
+        public bool Ice {
+            get {
+                return _ice;
+            }
+            set {
+                _ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
+        }
+        /// <summary>
+        /// Gets or sets the size of the drink the customer wants.
+        /// </summary>
+        public override Size Size {
+            get {
+                return _size;
+            }
+            set {
+                _size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
+        }
+        /// <summary>
+        /// Gets or sets of the customer wants cream in their drink.
+        /// </summary>
+        public bool RoomForCream {
+            get {
+                return _roomForCream;
+            }
+            set {
+                _roomForCream = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
+            }
+        }
+        /// <summary>
+        /// Gets or sets if the user wants their drink caffinated or decaf.
+        /// </summary>
+        public bool Decaf {
+            get {
+                return _decaf;
+            }
+            set {
+                _decaf = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+            }
+        }
         /// <summary>
         /// Gets the price of the drink.
         /// </summary>
@@ -38,18 +94,6 @@ namespace BleakwindBuffet.Data.Drinks {
                 }
             }
         }
-        /// <summary>
-        /// Gets or sets if the customer wants ice in their drink.
-        /// </summary>
-        public bool Ice { get; set; } = false;
-        /// <summary>
-        /// Gets or sets of the customer wants cream in their drink.
-        /// </summary>
-        public bool RoomForCream { get; set; } = false;
-        /// <summary>
-        /// Gets or sets if the user wants their drink caffinated or decaf.
-        /// </summary>
-        public bool Decaf { get; set; } = false;
         /// <summary>
         /// Gets a list of special instructions for the drink.
         /// </summary>

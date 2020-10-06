@@ -3,15 +3,18 @@
  * Class name: Entree.cs
  * Purpose: Base class that contains the fields shared by all entrees.
  */
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// A base class for common properties of all entrees.
     /// </summary>
     public abstract class Entree : IOrderItem {
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public abstract event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// The price of the entree.
         /// </summary>

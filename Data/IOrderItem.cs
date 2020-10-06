@@ -5,13 +5,14 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data {
     /// <summary>
     /// IOrderItem is an interface for all menu items to implement containing the basic properties shared by all.
     /// </summary>
-    public interface IOrderItem {
+    public interface IOrderItem : INotifyPropertyChanged {
         /// <summary>
         /// The price of the item.
         /// </summary>

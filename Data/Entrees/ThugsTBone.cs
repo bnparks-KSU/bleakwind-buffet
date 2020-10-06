@@ -4,12 +4,17 @@
  * Purpose: Class used to represent the Thugs T-Bone menu option.
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// Represents a T-Bone menu option.
     /// </summary>
     public class ThugsTBone : Entree {
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Gets the price of the menu item.
         /// </summary>

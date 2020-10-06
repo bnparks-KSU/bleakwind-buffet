@@ -1,26 +1,21 @@
-﻿using BleakwindBuffet.Data;
+﻿/*
+ * Author: Brian Parks
+ * Class name: CustomizationScreen.xaml.cs
+ * Purpose: Class used to handle the customization of any given IOrderItem and implementation of the CustomizationScreen control.
+ */
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PointOfSale {
     /// <summary>
     /// Interaction logic for CustomizationScreen.xaml
     /// </summary>
     public partial class CustomizationScreen : UserControl {
-        private IOrderItem orderItem;
         private ItemSelectionScreen iss;
         private List<Control> setControls;
         /// <summary>
@@ -36,7 +31,7 @@ namespace PointOfSale {
         /// <param name="orderItem">The item the customer is trying to order.</param>
         public CustomizationScreen(IOrderItem orderItem, ItemSelectionScreen iss) {
             InitializeComponent();
-            this.orderItem = orderItem;
+            this.DataContext = orderItem;
             this.iss = iss;
             setControls = new List<Control>();
             List<CheckBox> addLast = new List<CheckBox>(); //Just to put the drop downs above them.
@@ -45,17 +40,19 @@ namespace PointOfSale {
             foreach (PropertyInfo p in orderItem.GetType().GetProperties()) {
                 if(p.CanWrite) {
                     if (p.PropertyType.Name == "Boolean") {
-                        Console.WriteLine(p.Name);
                         CheckBox cb = new CheckBox();
                         cb.FontSize = 16;
                         cb.Content = p.Name;
                         cb.IsChecked = (bool) p.GetValue(orderItem);
                         cb.HorizontalAlignment = HorizontalAlignment.Left;
                         cb.Margin = new Thickness(5, 0, 5, 0);
+                        cb.SetBinding(CheckBox.IsCheckedProperty, new Binding(p.Name) {
+                            Source = orderItem,
+                            Mode = BindingMode.TwoWay
+                        });
                         addLast.Add(cb);
                     } else if(p.PropertyType.IsEnum) {
                         //Handle what to do for enums somehow
-                        Console.WriteLine("Enum: " + p.PropertyType.Name);
                         ComboBox cb = new ComboBox();
                         cb.FontSize = 16;
                         cb.Margin = new Thickness(5, 0, 5, 0);
@@ -72,6 +69,10 @@ namespace PointOfSale {
                                 throw new InvalidCastException("Enum is not accounted for.");
                         }
                         cb.HorizontalAlignment = HorizontalAlignment.Left;
+                        cb.SetBinding(ComboBox.SelectedValueProperty, new Binding(p.Name) {
+                            Source = orderItem,
+                            Mode = BindingMode.TwoWay
+                        });
                         MainPanel.Children.Add(cb);
                         setControls.Add(cb);
                     }
@@ -89,10 +90,21 @@ namespace PointOfSale {
         /// </summary>
         /// <param name="sender">The object that send the event, in this case a button.</param>
         /// <param name="e">The arguments of the event.</param>
-        private void ConfirmOrder_Click(object sender, RoutedEventArgs e) {
+        private void ConfirmItem_Click(object sender, RoutedEventArgs e) {
             //TODO: Find a better way to do this.
             iss.Visibility = Visibility.Visible;
-            ((MainWindow)((Grid)this.Parent).Parent).OrderPanel.Children.Add(new OrderedItem(orderItem, iss));
+            ((MainWindow)((Grid)this.Parent).Parent).OrderPanel.Children.Add(new OrderedItem(this.DataContext as IOrderItem, iss));
+            ((Grid)this.Parent).Children.Remove(this);
+        }
+
+        /// <summary>
+        /// Handles when you cancel an item's order.
+        /// </summary>
+        /// <param name="sender">The object that send the event, in this case a button.</param>
+        /// <param name="e">The arguments of the event.</param>
+        private void CancelItem_Click(object sender, RoutedEventArgs e) {
+            //TODO: Find a better way to do this.
+            iss.Visibility = Visibility.Visible;
             ((Grid)this.Parent).Children.Remove(this);
         }
     }

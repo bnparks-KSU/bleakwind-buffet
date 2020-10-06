@@ -4,24 +4,56 @@
  * Purpose: Class used to represent the philly cheesesteak menu option.
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees {
     /// <summary>
     /// PhillyPoacher is a philly cheesesteak food option.
     /// </summary>
-    public class PhillyPoacher : Entree {
+    public class PhillyPoacher : Entree, INotifyPropertyChanged {
+        private bool _sirloin = true;
+        private bool _onion = true;
+        private bool _roll = true;
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Gets or sets if the customer wants sirloin.
         /// </summary>
-        public bool Sirloin { get; set; } = true;
+        public bool Sirloin {
+            get {
+                return _sirloin;
+            }
+            set {
+                _sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants onion.
         /// </summary>
-        public bool Onion { get; set; } = true;
+        public bool Onion {
+            get {
+                return _onion;
+            }
+            set {
+                _onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+            }
+        }
         /// <summary>
         /// Gets or sets if the customer wants rolls.
         /// </summary>
-        public bool Roll { get; set; } = true;
+        public bool Roll {
+            get {
+                return _roll;
+            }
+            set {
+                _roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+            }
+        }
         /// <summary>
         /// Gets the price of the menu item.
         /// </summary>

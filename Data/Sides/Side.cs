@@ -6,6 +6,7 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Sides {
@@ -14,9 +15,14 @@ namespace BleakwindBuffet.Data.Sides {
     /// </summary>
     public abstract class Side : IOrderItem {
         /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public abstract event PropertyChangedEventHandler PropertyChanged;
+        protected Size _size;
+        /// <summary>
         /// The size of the side item.
         /// </summary>
-        public virtual Size Size { get; set; }
+        public abstract Size Size { get; set; }
         /// <summary>
         /// The price of the side item.
         /// </summary>
