@@ -3,20 +3,23 @@
  * Class name: MadOtarGrits.cs
  * Purpose: Class used to represent the mad otar grits side.
  */
+
 using BleakwindBuffet.Data.Enums;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Sides {
+
     /// <summary>
     /// Represents a mad otar grits side menu option.
     /// </summary>
     public class MadOtarGrits : Side, INotifyPropertyChanged {
+
         /// <summary>
         /// The property changed event handler.
         /// </summary>
         public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets or sets the size of the side the customer wants.
         /// </summary>
@@ -27,8 +30,12 @@ namespace BleakwindBuffet.Data.Sides {
             set {
                 _size = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ItemName"));
             }
         }
+
         /// <summary>
         /// Gets the price of the side.
         /// </summary>
@@ -42,6 +49,7 @@ namespace BleakwindBuffet.Data.Sides {
                 }
             }
         }
+
         /// <summary>
         /// Gets the amount of calories in the side.
         /// </summary>
@@ -55,6 +63,12 @@ namespace BleakwindBuffet.Data.Sides {
                 }
             }
         }
+
+        /// <summary>
+        /// The description of the MadOtarGrits
+        /// </summary>
+        public override string Description => "Cheesey Grits.";
+
         /// <summary>
         /// Gets the name and size of the side menu option.
         /// </summary>

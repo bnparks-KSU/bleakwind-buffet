@@ -3,10 +3,12 @@
  * Class name: BriarheartBurger.cs
  * Purpose: Class used to represent the base burger, the Briarheart Burger.
  */
+
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees {
+
     /// <summary>
     /// BriarheartBurger represents the base cheeseburger object.
     /// </summary>
@@ -16,10 +18,12 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool _mustard = true;
         private bool _pickle = true;
         private bool _cheese = true;
+
         /// <summary>
         /// The property changed event handler.
         /// </summary>
         public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets or sets if the customer wants a bun.
         /// </summary>
@@ -30,8 +34,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _bun = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants ketchup.
         /// </summary>
@@ -42,8 +48,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _ketchup = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants mustard.
         /// </summary>
@@ -54,8 +62,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _mustard = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants pickles.
         /// </summary>
@@ -66,8 +76,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _pickle = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants cheese.
         /// </summary>
@@ -78,16 +90,20 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _cheese = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets the price of the item.
         /// </summary>
         public override double Price => 6.32;
+
         /// <summary>
         /// Gets the calories of the item.
         /// </summary>
         public override uint Calories => 743;
+
         /// <summary>
         /// Returns a list of the special instructions for the food item.
         /// </summary>
@@ -102,6 +118,11 @@ namespace BleakwindBuffet.Data.Entrees {
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// The description for the briarheart burger.
+        /// </summary>
+        public override string Description => "Single patty burger on a brioche bun. Comes with ketchup, mustard, pickle, and cheese.";
 
         /// <summary>
         /// Returns the name of the item.

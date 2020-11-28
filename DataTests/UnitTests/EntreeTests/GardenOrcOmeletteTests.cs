@@ -3,12 +3,15 @@
  * Class: GardenOrcOmeletteTests.cs
  * Purpose: Test the GardenOrcOmelette.cs class in the Data library
  */
+
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+
     public class GardenOrcOmeletteTests {
+
         [Fact]
         public void ShouldBeAnEntree() {
             GardenOrcOmelette item = new GardenOrcOmelette();
@@ -127,7 +130,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             if (includeCheddar && includeBroccoli && includeMushrooms && includeTomato) {
                 Assert.Empty(goo.SpecialInstructions);
             }
-
         }
 
         [Fact]
@@ -142,12 +144,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(goo, "Broccoli", () => {
                 goo.Broccoli = false;
             });
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => {
+                goo.Broccoli = false;
+            });
         }
 
         [Fact]
         public void MushroomChangeShouldTriggerPropertyChanged() {
             GardenOrcOmelette goo = new GardenOrcOmelette();
             Assert.PropertyChanged(goo, "Mushrooms", () => {
+                goo.Mushrooms = false;
+            });
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => {
                 goo.Mushrooms = false;
             });
         }
@@ -158,6 +166,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(goo, "Tomato", () => {
                 goo.Tomato = false;
             });
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => {
+                goo.Tomato = false;
+            });
         }
 
         [Fact]
@@ -166,6 +177,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(goo, "Cheddar", () => {
                 goo.Cheddar = false;
             });
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => {
+                goo.Cheddar = false;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.", new GardenOrcOmelette().Description);
         }
     }
 }

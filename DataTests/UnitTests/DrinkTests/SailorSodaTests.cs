@@ -147,12 +147,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
             Assert.PropertyChanged(ss, "Size", () => {
                 ss.Size = Size.Large;
             });
+            Assert.PropertyChanged(ss, "Price", () => {
+                ss.Size = Size.Large;
+            });
+            Assert.PropertyChanged(ss, "Calories", () => {
+                ss.Size = Size.Large;
+            });
         }
 
         [Fact]
         public void IceChangeShouldTriggerPropertyChanged() {
             SailorSoda ss = new SailorSoda();
             Assert.PropertyChanged(ss, "Ice", () => {
+                ss.Ice = true;
+            });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => {
                 ss.Ice = true;
             });
         }
@@ -163,6 +172,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
             Assert.PropertyChanged(ss, "SodaFlavor", () => {
                 ss.Flavor = SodaFlavor.Lemon;
             });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.", new SailorSoda().Description);
         }
     }
 }

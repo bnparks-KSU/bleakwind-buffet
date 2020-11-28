@@ -3,10 +3,12 @@
  * Class name: SmokehouseSkeleton.cs
  * Purpose: Class used to represent the breakfast combo, the SmokehouseSkeleton.
  */
+
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees {
+
     /// <summary>
     /// Represents the SmokehouseSkeleton menu option.
     /// </summary>
@@ -15,10 +17,12 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool _egg = true;
         private bool _hashbrown = true;
         private bool _pancake = true;
+
         /// <summary>
         /// The property changed event handler.
         /// </summary>
         public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets or sets if the customer wants sausage.
         /// </summary>
@@ -29,8 +33,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _sausage = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sausage"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants eggs.
         /// </summary>
@@ -41,8 +47,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _egg = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants hash browns.
         /// </summary>
@@ -53,8 +61,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _hashbrown = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants pancakes.
         /// </summary>
@@ -65,16 +75,20 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _pancake = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets the price of the menu item.
         /// </summary>
         public override double Price => 5.62;
+
         /// <summary>
         /// Gets the amount of calories in the menu item.
         /// </summary>
         public override uint Calories => 602;
+
         /// <summary>
         /// Gets a list of special instructions for the menu item.
         /// </summary>
@@ -88,6 +102,12 @@ namespace BleakwindBuffet.Data.Entrees {
                 return ret;
             }
         }
+
+        /// <summary>
+        /// The description of the smokehouse skeleton.
+        /// </summary>
+        public override string Description => "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
+
         /// <summary>
         /// Gets the name of the menu item.
         /// </summary>

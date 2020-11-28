@@ -5,6 +5,7 @@
  */
 
 namespace BleakwindBuffet.Data.Enums {
+
     /// <summary>
     /// Provides available sizes
     /// </summary>

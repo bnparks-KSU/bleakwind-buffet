@@ -81,6 +81,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests {
             Assert.PropertyChanged(vs, "Size", () => {
                 vs.Size = Size.Medium;
             });
+            Assert.PropertyChanged(vs, "Calories", () => {
+                vs.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(vs, "Price", () => {
+                vs.Size = Size.Medium;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.", new VokunSalad().Description);
         }
     }
 }

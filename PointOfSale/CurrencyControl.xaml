@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="PointOfSale.CurrencyControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d"
+             d:DesignHeight="60" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label x:Name="ValueLabel" Grid.Column="0" Background="LightGreen" Margin="0,5,0,5" BorderBrush="Black" BorderThickness="1" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <Button x:Name="IncreaseAmount" Grid.Column="1" Background="LightBlue" Margin="0,5,0,5" BorderBrush="Black" BorderThickness="1" Content="+" FontSize="18" VerticalContentAlignment="Center" Click="OnAddCustomerAmount" HorizontalContentAlignment="Center" />
+        <Label x:Name="AmountLabel" Grid.Column="2" Background="LightGray" Margin="0,5,0,5" BorderBrush="Black" BorderThickness="1" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="{Binding CustomerMoneyAmount, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+        <Button x:Name="DecreaseAmount" Grid.Column="3" Background="LightBlue" Margin="0,5,0,5" BorderBrush="Black" BorderThickness="1" Content="-" FontSize="18" VerticalContentAlignment="Center" Click="OnLowerCustomerAmount" HorizontalContentAlignment="Center" />
+        <Label x:Name="ChangeLabel" Grid.Column="4" Background="LightGray" Margin="0,5,0,5" BorderBrush="Black" BorderThickness="1" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="{Binding ChangeMoneyAmount, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+    </Grid>
+</UserControl>

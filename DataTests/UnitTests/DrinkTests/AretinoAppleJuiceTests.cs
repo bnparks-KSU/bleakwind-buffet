@@ -109,6 +109,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
             Assert.PropertyChanged(aaj, "Size", () => {
                 aaj.Size = Size.Large;
             });
+            Assert.PropertyChanged(aaj, "Price", () => {
+                aaj.Size = Size.Large;
+            });
+            Assert.PropertyChanged(aaj, "Calories", () => {
+                aaj.Size = Size.Large;
+            });
         }
 
         [Fact]
@@ -117,6 +123,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
             Assert.PropertyChanged(aaj, "Ice", () => {
                 aaj.Ice = true;
             });
+            Assert.PropertyChanged(aaj, "SpecialInstructions", () => {
+                aaj.Ice = true;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("Fresh squeezed apple juice.", new AretinoAppleJuice().Description);
         }
     }
 }

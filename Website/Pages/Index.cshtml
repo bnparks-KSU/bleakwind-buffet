@@ -1,0 +1,143 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@using BleakwindBuffet.Data.Entrees;
+@using BleakwindBuffet.Data.Sides;
+@using BleakwindBuffet.Data.Drinks;
+@using BleakwindBuffet.Data.Enums;
+@using BleakwindBuffet.Data;
+
+<h1>Bleakwind Buffet</h1>
+
+<p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!.</p>
+<form id="formyboy">
+    <div class="filters">
+        <div class="item-type-filters">
+            <h4>Item Types</h4>
+            <label id="checkbox-filter">
+                <input type="checkbox" name="ShowEntrees" checked="@Model.ShowEntrees" />
+                Entrees
+            </label>
+            <label id="checkbox-filter">
+                <input type="checkbox" name="ShowSides" checked="@Model.ShowSides" />
+                Sides
+            </label>
+            <label id="checkbox-filter">
+                <input type="checkbox" name="ShowDrinks" checked="@Model.ShowDrinks" />
+                Drinks
+            </label>
+        </div>
+        <div class="calorie-count-filters">
+            <h4>Calories</h4>
+            <div>
+                Between
+                <input name="CaloriesMin" type="number" min="0" max="4294967295" step="1" value="@Model.CaloriesMin" placeholder="min" />
+                and
+                <input name="CaloriesMax" type="number" min="0" max="4294967295" step="1" value="@Model.CaloriesMax" placeholder="max" />
+            </div>
+        </div>
+        <div class="price-amount-filters">
+            <h4>Price</h4>
+            <div>
+                Between
+                <input name="PriceMin" type="number" min="0" max="@Double.MaxValue" step=".1" value="@Model.PriceMin" placeholder="min" />
+                and
+                <input name="PriceMax" type="number" min="0" max="@Double.MaxValue" step=".1" value="@Model.PriceMax" placeholder="max" />
+            </div>
+        </div>
+        <div class="search-terms-filters">
+            <h4>Search Terms</h4>
+            <input type="text" name="Terms" value="@Model.Terms" />
+        </div>
+    </div>
+    <div class="filter-submit-button">
+        <input type="submit" value="Search">
+    </div>
+</form>
+<div class="column-set">
+    @if (@Model.ShowEntrees) {
+        <div class="item-types">
+            <h2>Entrees</h2>
+            <ul id="entree-list">
+                @foreach (Entree e in @Model.Entrees) {
+                    <div class="individual-item">
+                        <h3 class="item-name">@e.ItemName</h3>
+                        <p>@e.Description</p>
+                        <ol class="item-breakdown">
+                            <li class="price">Price: $@e.Price</li>
+                            <li class="calories">Calories: @e.Calories</li>
+                        </ol>
+                    </div>
+                }
+            </ul>
+        </div>
+    }
+
+    @if (@Model.ShowSides) {
+        <div class="item-types">
+            <h2>Sides</h2>
+            <ul id="side-list">
+                @foreach (string type in @Model.Sides.Keys) {
+                    <div class="individual-item">
+                        @{
+                            List<IOrderItem> list = new List<IOrderItem>();
+                            if (@Model.Sides.TryGetValue(type, out list)) {
+                                <h3 class="item-name">@type</h3>
+                                <p>@list[0].Description</p>
+                                foreach (Side item in list) {
+                                    <h5>@item.Size</h5>
+                                    <ol class="item-breakdown">
+                                        <li>Price: $@item.Price</li>
+                                        <li>Calories: @item.Calories</li>
+                                    </ol>
+                                }
+                            }
+                        }
+                    </div>
+                }
+            </ul>
+        </div>
+    }
+
+    @if (@Model.ShowDrinks) {
+        <div class="item-types">
+            <h2>Drinks</h2>
+            <ul id="drink-list">
+                @foreach (string type in @Model.Drinks.Keys) {
+                    <div class="individual-item">
+                        @{
+                            List<IOrderItem> list = new List<IOrderItem>();
+                            if (@Model.Drinks.TryGetValue(type, out list)) {
+                                <h3 class="item-name">@type</h3>
+                                <p>@list[0].Description</p>
+                                foreach (Drink item in list) {
+                                    <h5>@item.Size</h5>
+                                    <ol class="item-breakdown">
+                                        <li>Price: $@item.Price</li>
+                                        <li>Calories: @item.Calories</li>
+                                    </ol>
+                                }
+                                @if (type.Equals("Sailor Soda")) {
+                                    <h5>Flavors</h5>
+                                    <ol class="item-breakdown">
+                                        @foreach (SodaFlavor f in Enum.GetValues(typeof(SodaFlavor))) {
+                                            <li>@f</li>
+                                        }
+                                    </ol>
+                                }
+                            }
+                        }
+                    </div>
+                }
+            </ul>
+        </div>
+    }
+</div>
+
+<div class="item-types">
+    <h2>Item Combos</h2>
+    <p>Any combination of an entree, side, and drink is elligible to be done as a combo for a $1.00 discount. Make sure to tell the employee taking your order that you would like a combo!</p>
+</div>

@@ -3,12 +3,15 @@
  * Class: PhillyPoacherTests.cs
  * Purpose: Test the PhillyPoacher.cs class in the Data library
  */
+
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+
     public class PhillyPoacherTests {
+
         [Fact]
         public void ShouldBeAnEntree() {
             PhillyPoacher item = new PhillyPoacher();
@@ -120,12 +123,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(p, "Sirloin", () => {
                 p.Sirloin = false;
             });
+            Assert.PropertyChanged(p, "SpecialInstructions", () => {
+                p.Sirloin = false;
+            });
         }
 
         [Fact]
         public void OnionChangeShouldTriggerPropertyChanged() {
             PhillyPoacher p = new PhillyPoacher();
             Assert.PropertyChanged(p, "Onion", () => {
+                p.Onion = false;
+            });
+            Assert.PropertyChanged(p, "SpecialInstructions", () => {
                 p.Onion = false;
             });
         }
@@ -136,6 +145,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(p, "Roll", () => {
                 p.Roll = false;
             });
+            Assert.PropertyChanged(p, "SpecialInstructions", () => {
+                p.Roll = false;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.", new PhillyPoacher().Description);
         }
     }
 }

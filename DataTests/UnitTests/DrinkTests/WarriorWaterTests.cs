@@ -127,6 +127,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
             Assert.PropertyChanged(ww, "Ice", () => {
                 ww.Ice = true;
             });
+            Assert.PropertyChanged(ww, "SpecialInstructions", () => {
+                ww.Ice = true;
+            });
         }
 
         [Fact]
@@ -135,6 +138,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
             Assert.PropertyChanged(ww, "Ice", () => {
                 ww.Ice = true;
             });
+            Assert.PropertyChanged(ww, "SpecialInstructions", () => {
+                ww.Lemon = true;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("It’s water. Just water.", new WarriorWater().Description);
         }
     }
 }

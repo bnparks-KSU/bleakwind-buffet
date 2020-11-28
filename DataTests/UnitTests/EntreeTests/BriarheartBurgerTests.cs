@@ -3,12 +3,15 @@
  * Class: BriarheartBurgerTests.cs
  * Purpose: Test the BriarheartBurger.cs class in the Data library
  */
+
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+
     public class BriarheartBurgerTests {
+
         [Fact]
         public void ShouldBeAnEntree() {
             BriarheartBurger item = new BriarheartBurger();
@@ -162,12 +165,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(bb, "Bun", () => {
                 bb.Bun = false;
             });
+            Assert.PropertyChanged(bb, "SpecialInstructions", () => {
+                bb.Bun = false;
+            });
         }
 
         [Fact]
         public void KetchupChangeShouldTriggerPropertyChanged() {
             BriarheartBurger bb = new BriarheartBurger();
             Assert.PropertyChanged(bb, "Ketchup", () => {
+                bb.Ketchup = false;
+            });
+            Assert.PropertyChanged(bb, "SpecialInstructions", () => {
                 bb.Ketchup = false;
             });
         }
@@ -178,12 +187,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(bb, "Mustard", () => {
                 bb.Mustard = false;
             });
+            Assert.PropertyChanged(bb, "SpecialInstructions", () => {
+                bb.Mustard = false;
+            });
         }
 
         [Fact]
         public void PickleChangeShouldTriggerPropertyChanged() {
             BriarheartBurger bb = new BriarheartBurger();
             Assert.PropertyChanged(bb, "Pickle", () => {
+                bb.Pickle = false;
+            });
+            Assert.PropertyChanged(bb, "SpecialInstructions", () => {
                 bb.Pickle = false;
             });
         }
@@ -194,6 +209,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(bb, "Cheese", () => {
                 bb.Cheese = false;
             });
+            Assert.PropertyChanged(bb, "SpecialInstructions", () => {
+                bb.Cheese = false;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("Single patty burger on a brioche bun. Comes with ketchup, mustard, pickle, and cheese.", new BriarheartBurger().Description);
         }
     }
 }

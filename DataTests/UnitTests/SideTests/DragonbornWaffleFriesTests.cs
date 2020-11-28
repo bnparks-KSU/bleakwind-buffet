@@ -81,6 +81,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests {
             Assert.PropertyChanged(wf, "Size", () => {
                 wf.Size = Size.Medium;
             });
+            Assert.PropertyChanged(wf, "Calories", () => {
+                wf.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(wf, "Price", () => {
+                wf.Size = Size.Medium;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("Crispy fried potato waffle fries.", new DragonbornWaffleFries().Description);
         }
     }
 }

@@ -81,6 +81,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests {
             Assert.PropertyChanged(mog, "Size", () => {
                 mog.Size = Size.Medium;
             });
+            Assert.PropertyChanged(mog, "Calories", () => {
+                mog.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(mog, "Price", () => {
+                mog.Size = Size.Medium;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("Cheesey Grits.", new MadOtarGrits().Description);
         }
     }
 }

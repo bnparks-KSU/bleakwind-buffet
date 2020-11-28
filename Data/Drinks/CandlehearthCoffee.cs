@@ -3,23 +3,28 @@
  * Class name: CandlehearthCoffee.cs
  * Purpose: Class used to represent the candlehearth coffee drink.
  */
+
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks {
+
     /// <summary>
     /// Represents the Candlehearth coffee drink.
     /// </summary>
     public class CandlehearthCoffee : Drink, INotifyPropertyChanged {
+
         /// <summary>
         /// The property changed event handler.
         /// </summary>
         public override event PropertyChangedEventHandler PropertyChanged;
+
         private bool _ice = false;
         private bool _roomForCream = false;
         private bool _decaf = false;
+
         /// <summary>
         /// Gets or sets if the customer wants ice in their drink.
         /// </summary>
@@ -30,8 +35,10 @@ namespace BleakwindBuffet.Data.Drinks {
             set {
                 _ice = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets the size of the drink the customer wants.
         /// </summary>
@@ -42,8 +49,12 @@ namespace BleakwindBuffet.Data.Drinks {
             set {
                 _size = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ItemName"));
             }
         }
+
         /// <summary>
         /// Gets or sets of the customer wants cream in their drink.
         /// </summary>
@@ -54,8 +65,10 @@ namespace BleakwindBuffet.Data.Drinks {
             set {
                 _roomForCream = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the user wants their drink caffinated or decaf.
         /// </summary>
@@ -66,8 +79,11 @@ namespace BleakwindBuffet.Data.Drinks {
             set {
                 _decaf = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ItemName"));
             }
         }
+
         /// <summary>
         /// Gets the price of the drink.
         /// </summary>
@@ -81,6 +97,7 @@ namespace BleakwindBuffet.Data.Drinks {
                 }
             }
         }
+
         /// <summary>
         /// Gets the amount of calories in the drink.
         /// </summary>
@@ -94,6 +111,7 @@ namespace BleakwindBuffet.Data.Drinks {
                 }
             }
         }
+
         /// <summary>
         /// Gets a list of special instructions for the drink.
         /// </summary>
@@ -105,6 +123,12 @@ namespace BleakwindBuffet.Data.Drinks {
                 return ret;
             }
         }
+
+        /// <summary>
+        /// The description for the CandlehearthCoffee
+        /// </summary>
+        public override string Description => "Fair trade, fresh ground dark roast coffee.";
+
         /// <summary>
         /// Gets the name and size of the drink.
         /// </summary>

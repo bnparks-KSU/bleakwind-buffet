@@ -3,20 +3,23 @@
  * Class name: DragonbornWaffleFries.cs
  * Purpose: Class used to represent the dragonborn waffle fries side.
  */
+
 using BleakwindBuffet.Data.Enums;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Sides {
+
     /// <summary>
     /// Represents a dradonborn waffle fries side option.
     /// </summary>
     public class DragonbornWaffleFries : Side, INotifyPropertyChanged {
+
         /// <summary>
         /// The property changed event handler.
         /// </summary>
         public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets or sets the size of the side the customer wants.
         /// </summary>
@@ -27,8 +30,12 @@ namespace BleakwindBuffet.Data.Sides {
             set {
                 _size = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ItemName"));
             }
         }
+
         /// <summary>
         /// Gets the price of the side.
         /// </summary>
@@ -42,6 +49,7 @@ namespace BleakwindBuffet.Data.Sides {
                 }
             }
         }
+
         /// <summary>
         /// Gets the amount of calories in the side.
         /// </summary>
@@ -55,6 +63,11 @@ namespace BleakwindBuffet.Data.Sides {
                 }
             }
         }
+
+        /// <summary>
+        /// The description of the dragonborn waffle fries.
+        /// </summary>
+        public override string Description => "Crispy fried potato waffle fries.";
 
         /// <summary>
         /// Gets the name and size of the side option.

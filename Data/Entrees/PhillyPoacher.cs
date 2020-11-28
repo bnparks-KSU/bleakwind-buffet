@@ -3,10 +3,12 @@
  * Class name: PhillyPoacher.cs
  * Purpose: Class used to represent the philly cheesesteak menu option.
  */
+
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees {
+
     /// <summary>
     /// PhillyPoacher is a philly cheesesteak food option.
     /// </summary>
@@ -14,10 +16,12 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool _sirloin = true;
         private bool _onion = true;
         private bool _roll = true;
+
         /// <summary>
         /// The property changed event handler.
         /// </summary>
         public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets or sets if the customer wants sirloin.
         /// </summary>
@@ -28,8 +32,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _sirloin = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants onion.
         /// </summary>
@@ -40,8 +46,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _onion = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants rolls.
         /// </summary>
@@ -52,16 +60,20 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _roll = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets the price of the menu item.
         /// </summary>
         public override double Price => 7.23;
+
         /// <summary>
         /// Gets the amount of calories in the menu item.
         /// </summary>
         public override uint Calories => 784;
+
         /// <summary>
         /// Gets a list of special instructions for the menu item.
         /// </summary>
@@ -74,6 +86,12 @@ namespace BleakwindBuffet.Data.Entrees {
                 return ret;
             }
         }
+
+        /// <summary>
+        /// The description of the philly poacher.
+        /// </summary>
+        public override string Description => "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+
         /// <summary>
         /// Returns a string of the name of the menu item.
         /// </summary>

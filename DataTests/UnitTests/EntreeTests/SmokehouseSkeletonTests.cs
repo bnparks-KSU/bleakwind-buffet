@@ -3,12 +3,15 @@
  * Class: SmokehouseSkeletonTests.cs
  * Purpose: Test the SmokehouseSkeleton.cs class in the Data library
  */
+
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+
     public class SmokehouseSkeletonTests {
+
         [Fact]
         public void ShouldBeAnEntree() {
             SmokehouseSkeleton item = new SmokehouseSkeleton();
@@ -138,12 +141,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(ss, "Sausage", () => {
                 ss.SausageLink = false;
             });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => {
+                ss.SausageLink = false;
+            });
         }
 
         [Fact]
         public void HashbrownsChangeShouldTriggerPropertyChanged() {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             Assert.PropertyChanged(ss, "Hashbrowns", () => {
+                ss.HashBrowns = false;
+            });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => {
                 ss.HashBrowns = false;
             });
         }
@@ -154,6 +163,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(ss, "Pancake", () => {
                 ss.Pancake = false;
             });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => {
+                ss.Pancake = false;
+            });
         }
 
         [Fact]
@@ -162,6 +174,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(ss, "Egg", () => {
                 ss.Egg = false;
             });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => {
+                ss.Egg = false;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.", new SmokehouseSkeleton().Description);
         }
     }
 }

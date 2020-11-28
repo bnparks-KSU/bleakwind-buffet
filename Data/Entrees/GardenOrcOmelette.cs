@@ -3,10 +3,12 @@
  * Class name: GardenOrcOmlette.cs
  * Purpose: Class used to represent the vegetarian food option.
  */
+
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees {
+
     /// <summary>
     /// GardenOrcOmlette is a vegetarian breakfast option.
     /// </summary>
@@ -15,10 +17,12 @@ namespace BleakwindBuffet.Data.Entrees {
         private bool _mushroom = true;
         private bool _tomato = true;
         private bool _cheddar = true;
+
         /// <summary>
         /// The property changed event handler.
         /// </summary>
         public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets or sets if the customer wants broccoli.
         /// </summary>
@@ -29,8 +33,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _broccoli = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants mushrooms.
         /// </summary>
@@ -41,8 +47,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _mushroom = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants tomato.
         /// </summary>
@@ -53,8 +61,10 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _tomato = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets if the customer wants cheddar.
         /// </summary>
@@ -65,16 +75,20 @@ namespace BleakwindBuffet.Data.Entrees {
             set {
                 _cheddar = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets the price of the menu item.
         /// </summary>
         public override double Price => 4.57;
+
         /// <summary>
         /// Gets the amount of calories in the menu item.
         /// </summary>
         public override uint Calories => 404;
+
         /// <summary>
         /// Gets a list of the special instructions for the menu item.
         /// </summary>
@@ -88,6 +102,11 @@ namespace BleakwindBuffet.Data.Entrees {
                 return ret;
             }
         }
+
+        /// <summary>
+        /// The description of the garden orc omelette.
+        /// </summary>
+        public override string Description => "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
 
         /// <summary>
         /// Gets the name of the menu item.

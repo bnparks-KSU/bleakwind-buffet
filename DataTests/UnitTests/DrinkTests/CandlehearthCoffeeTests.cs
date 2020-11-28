@@ -149,12 +149,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
             Assert.PropertyChanged(chc, "Size", () => {
                 chc.Size = Size.Large;
             });
+            Assert.PropertyChanged(chc, "Price", () => {
+                chc.Size = Size.Large;
+            });
+            Assert.PropertyChanged(chc, "Calories", () => {
+                chc.Size = Size.Large;
+            });
         }
 
         [Fact]
         public void IceChangeShouldTriggerPropertyChanged() {
             CandlehearthCoffee chc = new CandlehearthCoffee();
             Assert.PropertyChanged(chc, "Ice", () => {
+                chc.Ice = true;
+            });
+            Assert.PropertyChanged(chc, "SpecialInstructions", () => {
                 chc.Ice = true;
             });
         }
@@ -165,6 +174,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
             Assert.PropertyChanged(chc, "Decaf", () => {
                 chc.Decaf = true;
             });
+            Assert.PropertyChanged(chc, "SpecialInstructions", () => {
+                chc.Decaf = true;
+            });
         }
 
         [Fact]
@@ -173,6 +185,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests {
             Assert.PropertyChanged(chc, "RoomForCream", () => {
                 chc.RoomForCream = true;
             });
+            Assert.PropertyChanged(chc, "SpecialInstructions", () => {
+                chc.RoomForCream = true;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("Fair trade, fresh ground dark roast coffee.", new CandlehearthCoffee().Description);
         }
     }
 }

@@ -3,12 +3,15 @@
  * Class: DoubleDraugrTests.cs
  * Purpose: Test the DoubleDraugr.cs class in the Data library
  */
+
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+
     public class DoubleDraugrTests {
+
         [Fact]
         public void ShouldBeAnEntree() {
             DoubleDraugr item = new DoubleDraugr();
@@ -226,12 +229,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(dd, "Bun", () => {
                 dd.Bun = false;
             });
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => {
+                dd.Bun = false;
+            });
         }
 
         [Fact]
         public void KetchupChangeShouldTriggerPropertyChanged() {
             DoubleDraugr dd = new DoubleDraugr();
             Assert.PropertyChanged(dd, "Ketchup", () => {
+                dd.Ketchup = false;
+            });
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => {
                 dd.Ketchup = false;
             });
         }
@@ -242,12 +251,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(dd, "Mustard", () => {
                 dd.Mustard = false;
             });
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => {
+                dd.Mustard = false;
+            });
         }
 
         [Fact]
         public void PickleChangeShouldTriggerPropertyChanged() {
             DoubleDraugr dd = new DoubleDraugr();
             Assert.PropertyChanged(dd, "Pickle", () => {
+                dd.Pickle = false;
+            });
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => {
                 dd.Pickle = false;
             });
         }
@@ -258,12 +273,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(dd, "Cheese", () => {
                 dd.Cheese = false;
             });
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => {
+                dd.Cheese = false;
+            });
         }
 
         [Fact]
         public void TomatoChangeShouldTriggerPropertyChanged() {
             DoubleDraugr dd = new DoubleDraugr();
             Assert.PropertyChanged(dd, "Tomato", () => {
+                dd.Tomato = false;
+            });
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => {
                 dd.Tomato = false;
             });
         }
@@ -274,6 +295,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(dd, "Lettuce", () => {
                 dd.Lettuce = false;
             });
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => {
+                dd.Lettuce = false;
+            });
         }
 
         [Fact]
@@ -282,6 +306,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(dd, "Mayo", () => {
                 dd.Mayo = false;
             });
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => {
+                dd.Mayo = false;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.", new DoubleDraugr().Description);
         }
     }
 }

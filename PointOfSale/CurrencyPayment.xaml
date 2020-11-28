@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="PointOfSale.CurrencyPayment"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="800">
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Row 01 -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="FromCustomerLabelBills" Grid.Row="0" Grid.Column="1" Content="Customer Bills" Grid.ColumnSpan="3" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" />
+                <Label x:Name="CustomerChangeLabelBills" Grid.Row="0" Grid.Column="3" Content="Change" Grid.ColumnSpan="2" FontSize="18" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" />
+            </Grid>
+            <local:CurrencyControl x:Name="Hundreds" Grid.Row="1" ValueType="$100.00" CustomerMoneyAmount="{Binding HundredsCustomer}" ChangeMoneyAmount="{Binding HundredsChange}" />
+            <local:CurrencyControl x:Name="Fifties" Grid.Row="2" ValueType="$50.00" CustomerMoneyAmount="{Binding FiftiesCustomer}" ChangeMoneyAmount="{Binding FiftiesChange}" />
+            <local:CurrencyControl x:Name="Twenties" Grid.Row="3" ValueType="$20.00" CustomerMoneyAmount="{Binding TwentiesCustomer}" ChangeMoneyAmount="{Binding TwentiesChange}" />
+            <local:CurrencyControl x:Name="Tens" Grid.Row="4" ValueType="$10.00" CustomerMoneyAmount="{Binding TensCustomer}" ChangeMoneyAmount="{Binding TensChange}" />
+            <local:CurrencyControl x:Name="Fives" Grid.Row="5" ValueType="$5.00" CustomerMoneyAmount="{Binding FivesCustomer}" ChangeMoneyAmount="{Binding FivesChange}" />
+            <local:CurrencyControl x:Name="Twos" Grid.Row="6" ValueType="$2.00" CustomerMoneyAmount="{Binding TwosCustomer}" ChangeMoneyAmount="{Binding TwosChange}" />
+            <local:CurrencyControl x:Name="Ones" Grid.Row="7" ValueType="$1.00" CustomerMoneyAmount="{Binding OnesCustomer}" ChangeMoneyAmount="{Binding OnesChange}" />
+        </Grid>
+
+        <!-- Row 02 -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button x:Name="ReturnToOrderButton" Content="Return To Order" FontSize="16" HorizontalAlignment="Right" Background="DimGray" Click="ReturnToOrder_Click" />
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="FromCustomerLabelCoins" Grid.Row="1" Grid.Column="1" Content="Customer Coins" Grid.ColumnSpan="3" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" />
+                <Label x:Name="CustomerChangeLabelCoins" Grid.Row="1" Grid.Column="3" Content="Change" Grid.ColumnSpan="2" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" />
+            </Grid>
+            <local:CurrencyControl x:Name="DollarCoins" Grid.Row="2" ValueType="$1.00" CustomerMoneyAmount="{Binding DollarCoinsCustomer}" ChangeMoneyAmount="{Binding DollarCoinsChange}" />
+            <local:CurrencyControl x:Name="HalfDollars" Grid.Row="3" ValueType="$0.50" CustomerMoneyAmount="{Binding HalfDollarsCustomer}" ChangeMoneyAmount="{Binding HalfDollarsChange}" />
+            <local:CurrencyControl x:Name="Quarters" Grid.Row="4" ValueType="$0.25" CustomerMoneyAmount="{Binding QuartersCustomer}" ChangeMoneyAmount="{Binding QuartersChange}" />
+            <local:CurrencyControl x:Name="Dimes" Grid.Row="5" ValueType="$0.10" CustomerMoneyAmount="{Binding DimesCustomer}" ChangeMoneyAmount="{Binding DimesChange}" />
+            <local:CurrencyControl x:Name="Nickels" Grid.Row="6" ValueType="$0.05" CustomerMoneyAmount="{Binding NickelsCustomer}" ChangeMoneyAmount="{Binding NickelsChange}" />
+            <local:CurrencyControl x:Name="Pennies" Grid.Row="7" ValueType="$0.01" CustomerMoneyAmount="{Binding PenniesCustomer}" ChangeMoneyAmount="{Binding PenniesChange}" />
+        </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TotalSaleText" Text="Total Sale:" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBlock x:Name="TotalSaleAmount" Text="{Binding Total, StringFormat={}{0:C2}}" FontSize="18" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBlock x:Name="AmountDueText" Text="Due:" FontSize="18" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBlock x:Name="AmountDue" Text="{Binding Due, StringFormat={}{0:C2}}" FontSize="18" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBlock x:Name="ChangedOwedText" Text="Change:" FontSize="18" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBlock x:Name="ChangeOwed" Text="{Binding Owed, StringFormat={}{0:C2}}" FontSize="18" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Button x:Name="FinalizeSale" Content="Finalize" FontSize="18" Grid.Column="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DimGray" Click="FinalizeSale_Click" />
+        </Grid>
+    </Grid>
+</UserControl>

@@ -3,16 +3,19 @@
  * Class name: Menu.cs
  * Purpose: Static class used to get specific lists of menu options, such as the list of entrees, drinks, sides, and all.
  */
+
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace BleakwindBuffet.Data {
+
     public static class Menu {
+
         /// <summary>
         /// Gets a list of all entrees on the menu.
         /// </summary>
@@ -36,7 +39,6 @@ namespace BleakwindBuffet.Data {
         public static IEnumerable<IOrderItem> Sides() {
             List<IOrderItem> sides = new List<IOrderItem>();
             Side s;
-
 
             //DragonbornWaffleFries
             foreach (Size size in Enum.GetValues(typeof(Size))) {
@@ -124,7 +126,7 @@ namespace BleakwindBuffet.Data {
         /// <returns>A list of IOrderItem objects that contains all items.</returns>
         public static IEnumerable<IOrderItem> FullMenu() {
             List<IOrderItem> fullMenu = new List<IOrderItem>();
-            foreach(IOrderItem i in Menu.Entrees()) {
+            foreach (IOrderItem i in Menu.Entrees()) {
                 fullMenu.Add(i);
             }
             foreach (IOrderItem i in Menu.Sides()) {
@@ -134,6 +136,96 @@ namespace BleakwindBuffet.Data {
                 fullMenu.Add(i);
             }
             return fullMenu;
+        }
+
+        /// <summary>
+        /// Filters out all of the items that does not contain one of the search terms.
+        /// </summary>
+        /// <param name="baseItems">The items to search through.</param>
+        /// <param name="terms">The terms to search by.</param>
+        /// <returns>Returns a list of IOrderItem objects.</returns>
+        public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> baseItems, string terms) {
+            if (terms == null || baseItems == null) {
+                return baseItems;
+            }
+            baseItems = baseItems.Where(item => {
+                if (item == null || item.ItemName == null || item.Description == null) {
+                    return false;
+                }
+                foreach (string s in terms.Split(' ')) if (s != "") {
+                        if (item.ItemName.ToLower().Contains(s.ToLower()) || item.Description.ToLower().Contains(s.ToLower())) {
+                            return true;
+                        }
+                    }
+                return false;
+            });
+            return baseItems;
+        }
+
+        /// <summary>
+        /// Filters out all of the items that are not within the min and maximum calorie value.
+        /// </summary>
+        /// <param name="items">The items to search through.</param>
+        /// <param name="min">The minimum calorie value.</param>
+        /// <param name="max">The maximum calorie value.</param>
+        /// <returns>Returns a list of IOrderItem objects.</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, uint? min, uint? max) {
+            if (min != null) {
+                items = items.Where(item => {
+                    if (item == null) {
+                        return false;
+                    }
+                    if (item.Calories >= min) {
+                        return true;
+                    }
+                    return false;
+                });
+            }
+            if (max != null) {
+                items = items.Where(item => {
+                    if (item == null) {
+                        return false;
+                    }
+                    if (item.Calories <= max) {
+                        return true;
+                    }
+                    return false;
+                });
+            }
+            return items;
+        }
+
+        /// <summary>
+        /// Filters out all of the items that are not within the min and maximum price value.
+        /// </summary>
+        /// <param name="items">The items to search through.</param>
+        /// <param name="min">The minimum price value.</param>
+        /// <param name="max">The maximum price value.</param>
+        /// <returns>Returns a list of IOrderItem objects.</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max) {
+            if (min != null) {
+                items = items.Where(item => {
+                    if (item == null) {
+                        return false;
+                    }
+                    if (item.Price >= min) {
+                        return true;
+                    }
+                    return false;
+                });
+            }
+            if (max != null) {
+                items = items.Where(item => {
+                    if (item == null) {
+                        return false;
+                    }
+                    if (item.Price <= max) {
+                        return true;
+                    }
+                    return false;
+                });
+            }
+            return items;
         }
     }
 }

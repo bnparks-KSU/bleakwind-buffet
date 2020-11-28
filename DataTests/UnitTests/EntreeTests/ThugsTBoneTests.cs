@@ -3,12 +3,15 @@
  * Class: ThugsTBoneTests.cs
  * Purpose: Test the ThugsTBone.cs class in the Data library
  */
+
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+
     public class ThugsTBoneTests {
+
         [Fact]
         public void ShouldBeAnEntree() {
             ThugsTBone item = new ThugsTBone();
@@ -43,6 +46,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
         public void ShouldReturnCorrectToString() {
             ThugsTBone ttb = new ThugsTBone();
             Assert.Equal("Thugs T-Bone", ttb.ToString());
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("Juicy T-Bone, not much else to say.", new ThugsTBone().Description);
         }
     }
 }

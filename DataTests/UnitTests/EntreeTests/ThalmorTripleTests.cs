@@ -3,12 +3,15 @@
  * Class: ThalmorTripleTests.cs
  * Purpose: Test the ThalmorTriple.cs class in the Data library
  */
+
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
+
     public class ThalmorTripleTests {
+
         [Fact]
         public void ShouldBeAnEntree() {
             ThalmorTriple item = new ThalmorTriple();
@@ -68,7 +71,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             ThalmorTriple tt = new ThalmorTriple();
             Assert.True(tt.Mayo);
         }
-
 
         [Fact]
         public void ShouldIncludeBaconByDefault() {
@@ -270,12 +272,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(tt, "Bun", () => {
                 tt.Bun = false;
             });
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => {
+                tt.Bun = false;
+            });
         }
 
         [Fact]
         public void KetchupChangeShouldTriggerPropertyChanged() {
             ThalmorTriple tt = new ThalmorTriple();
             Assert.PropertyChanged(tt, "Ketchup", () => {
+                tt.Ketchup = false;
+            });
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => {
                 tt.Ketchup = false;
             });
         }
@@ -286,12 +294,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(tt, "Mustard", () => {
                 tt.Mustard = false;
             });
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => {
+                tt.Mustard = false;
+            });
         }
 
         [Fact]
         public void PickleChangeShouldTriggerPropertyChanged() {
             ThalmorTriple tt = new ThalmorTriple();
             Assert.PropertyChanged(tt, "Pickle", () => {
+                tt.Pickle = false;
+            });
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => {
                 tt.Pickle = false;
             });
         }
@@ -302,12 +316,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(tt, "Cheese", () => {
                 tt.Cheese = false;
             });
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => {
+                tt.Cheese = false;
+            });
         }
 
         [Fact]
         public void TomatoChangeShouldTriggerPropertyChanged() {
             ThalmorTriple tt = new ThalmorTriple();
             Assert.PropertyChanged(tt, "Tomato", () => {
+                tt.Tomato = false;
+            });
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => {
                 tt.Tomato = false;
             });
         }
@@ -318,12 +338,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(tt, "Lettuce", () => {
                 tt.Lettuce = false;
             });
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => {
+                tt.Lettuce = false;
+            });
         }
 
         [Fact]
         public void MayoChangeShouldTriggerPropertyChanged() {
             ThalmorTriple tt = new ThalmorTriple();
             Assert.PropertyChanged(tt, "Mayo", () => {
+                tt.Mayo = false;
+            });
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => {
                 tt.Mayo = false;
             });
         }
@@ -334,6 +360,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(tt, "Bacon", () => {
                 tt.Bacon = false;
             });
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => {
+                tt.Bacon = false;
+            });
         }
 
         [Fact]
@@ -342,6 +371,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests {
             Assert.PropertyChanged(tt, "Egg", () => {
                 tt.Egg = false;
             });
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => {
+                tt.Egg = false;
+            });
+        }
+        [Fact]
+        public void TestDescription() {
+            Assert.Equal("Think you are strong enough to take on the Thalmor? Inlcudes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.", new ThalmorTriple().Description);
         }
     }
 }

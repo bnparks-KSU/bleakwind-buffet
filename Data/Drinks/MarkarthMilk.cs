@@ -3,21 +3,26 @@
  * Class name: MarkathMilk.cs
  * Purpose: Class used to represent the Markath Milk drink.
  */
+
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks {
+
     /// <summary>
     /// Represents the Markath Milk drink.
     /// </summary>
     public class MarkarthMilk : Drink, INotifyPropertyChanged {
+
         /// <summary>
         /// The property changed event handler.
         /// </summary>
         public override event PropertyChangedEventHandler PropertyChanged;
+
         private bool _ice = false;
+
         /// <summary>
         /// Gets or sets if the customer wants ice in their drink.
         /// </summary>
@@ -28,8 +33,10 @@ namespace BleakwindBuffet.Data.Drinks {
             set {
                 _ice = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+
         /// <summary>
         /// Gets or sets the size of the drink the customer wants.
         /// </summary>
@@ -40,8 +47,12 @@ namespace BleakwindBuffet.Data.Drinks {
             set {
                 _size = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ItemName"));
             }
         }
+
         /// <summary>
         /// Gets the price of the drink.
         /// </summary>
@@ -55,6 +66,7 @@ namespace BleakwindBuffet.Data.Drinks {
                 }
             }
         }
+
         /// <summary>
         /// Gets the amount of calories in the drink.
         /// </summary>
@@ -68,6 +80,7 @@ namespace BleakwindBuffet.Data.Drinks {
                 }
             }
         }
+
         /// <summary>
         /// Gets a list of special instructions for the drink.
         /// </summary>
@@ -78,6 +91,12 @@ namespace BleakwindBuffet.Data.Drinks {
                 return ret;
             }
         }
+
+        /// <summary>
+        /// The description for the MarkarthMilk
+        /// </summary>
+        public override string Description => "Hormone-free organic 2% milk.";
+
         /// <summary>
         /// Gets the name and size and size of the drink.
         /// </summary>
